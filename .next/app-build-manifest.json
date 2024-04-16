@@ -8,6 +8,7 @@
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
     "/not-found": [
@@ -18,11 +19,13 @@
     "/(home)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/(home)/page.css",
       "static/chunks/app/(home)/page.js"
     ],
     "/(movies)/movies/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/(movies)/movies/[id]/page.css",
       "static/chunks/app/(movies)/movies/[id]/page.js"
     ],
     "/(movies)/movies/[id]/error": [
