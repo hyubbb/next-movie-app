@@ -13,6 +13,7 @@ export const Navigation = () => {
         </li>
         <li>
           <Link href='/about-us'>About Us</Link>
+          {pathname === "about-us" ? "⚙︎" : ""}
         </li>
       </ul>
     </nav>

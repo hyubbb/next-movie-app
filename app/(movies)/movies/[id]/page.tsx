@@ -1,11 +1,20 @@
-const movieDetail = ({
-  params: { id },
-  searchParams,
-}: {
-  params: { id: string };
-  searchParams: string;
-}) => {
-  return <h1>movie detail {id}</h1>;
+import { Suspense } from "react";
+import MovieInfo from "../../../../components/movie-info";
+import MovieVideos from "../../../../components/movie-videos";
+
+const movieDetail = async ({ params: { id } }: { params: { id: string } }) => {
+  return (
+    <div>
+      <h3>Detail page</h3>
+      <Suspense fallback={<h1>Loading movie info</h1>}>
+        <MovieInfo id={id} />
+      </Suspense>
+      <h4>Videos</h4>
+      <Suspense fallback={<h1>Loading movie video</h1>}>
+        <MovieVideos id={id} />
+      </Suspense>
+    </div>
+  );
 };
 
 export default movieDetail;
