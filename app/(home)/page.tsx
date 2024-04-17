@@ -1,24 +1,31 @@
-import Movie from "../../components/movie";
+import Movie from "../../components/movie/movie";
 import React from "react";
 import styles from "../../styles/home.module.css";
-import { API_URL } from "./constants";
+import { MOVIE_URL, TRENDING_URL, options } from "../constants";
+import MovieSection from "../../components/section/movie-section";
+import Upcoming from "../../components/section/upcoming";
 export const metadata = {
   title: "Home",
 };
 
 const getMovies = async () => {
-  const response = await fetch(API_URL);
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(MOVIE_URL, options);
+    const data = await response.json();
+    return data.results;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default async function HomePage() {
   const movies = await getMovies();
+
   return (
     <div className={styles.container}>
-      {movies.map((movie) => {
-        return <Movie key={movie.key} movie={movie} />;
-      })}
+      <Upcoming />
+      <MovieSection type='movie' />
+      <MovieSection type='tv' />
     </div>
   );
 }

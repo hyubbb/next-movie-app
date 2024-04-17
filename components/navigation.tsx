@@ -6,18 +6,16 @@ import styles from "../styles/navigation.module.css";
 
 export const Navigation = () => {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <nav className={styles.nav}>
       <ul>
         <li>
-          <Link href='/'>Home </Link>
-          {pathname === "/" ? "⚙︎" : ""}
+          <Link href='/'>Movie</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href='/about-us'>About Us </Link>
           {pathname === "/about-us" ? "⚙︎" : ""}
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

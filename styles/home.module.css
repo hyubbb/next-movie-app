@@ -1,8 +1,9 @@
 .container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 25px;
+  display: flex;
+  flex-direction: column;
+  /* grid-template-columns: repeat(5, 1fr); */
+
   max-width: 90%;
-  width: 100%;
   margin: 0 auto;
+  gap: 30px;
 }

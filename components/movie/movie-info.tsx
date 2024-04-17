@@ -1,0 +1,76 @@
+import React, { Suspense } from "react";
+import {
+  API_URL,
+  IMG_URL,
+  MOVIE_DETAIL_URL,
+  options,
+} from "../../app/constants";
+import styles from "../../styles/movie-info.module.scss";
+import MovieCredits from "./movie-credits";
+
+export const getMovie = async ({ id, type }: { id: string; type: string }) => {
+  const response = await fetch(
+    `${MOVIE_DETAIL_URL}/${type}/${id}?append_to_response=credits&language=ko`,
+    options
+  );
+  return response.json();
+};
+
+export default async function MovieInfo({ id, type }) {
+  const movie = await getMovie({ id, type });
+
+  const {
+    title,
+    poster_path,
+    name,
+    overview,
+    homepage,
+    vote_average,
+    release_date,
+    runtime,
+    genres,
+    credits,
+  } = movie;
+
+  return (
+    <div className={styles.container}>
+      <img src={`${IMG_URL}${poster_path}`} className={styles.poster} />
+      <div className={styles.info}>
+        <h1 className={styles.title}>{title || name}</h1>
+        <div className={styles.genres}>
+          {genres.map((genre, idx) => {
+            return (
+              <React.Fragment key={idx}>
+                <div className={styles.text} key={genre.id}>
+                  {genre.name}
+                </div>
+                {idx !== genres.length - 1 && <span>{" ・ "}</span>}
+              </React.Fragment>
+            );
+          })}
+        </div>
+        <div className={styles.infoCustom}>
+          <h3>⭐️{vote_average.toFixed(1)}</h3>
+          <span>|</span> <h3>{release_date}</h3>
+          <span>|</span>
+          <h3>{runtime}분</h3>
+        </div>
+        <div className={styles.overview}>{overview}</div>
+        {homepage && (
+          <a href={homepage} target={"_blank"}>
+            website
+          </a>
+        )}
+
+        <Suspense fallback={<h1>Loading credits</h1>}>
+          <MovieCredits id={id} credits={credits} />
+        </Suspense>
+      </div>
+      <img
+        className={styles.blurredBg}
+        src={`${IMG_URL}${poster_path}`}
+        alt={title}
+      />
+    </div>
+  );
+}

@@ -1,0 +1,258 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./styles/movie-videos.module.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.movie-videos_container__0nMov {
+  width: 80%;
+  min-height: 300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* grid-template-columns: repeat(5, 1fr); */
+  grid-gap: 20px;
+  gap: 20px;
+  margin-top: 30px;
+  padding-bottom: 100px;
+}
+.movie-videos_container__0nMov iframe {
+  border-radius: 10px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out;
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+.movie-videos_container__0nMov iframe:hover {
+  opacity: 1;
+}
+
+.movie-videos_text__iYkrg {
+  text-align: center;
+  margin: 30px 0;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./styles/movie-similar.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.movie-similar_container__UMXcO {
+  display: grid;
+  grid-gap: 20px;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.movie-similar_container__UMXcO img {
+  width: 130px;
+}
+
+.movie-similar_card__AXJzj {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  width: 100%;
+}
+.movie-similar_card__AXJzj img {
+  width: 100%;
+  aspect-ratio: 2/3;
+}
+
+.movie-similar_noImage__8KprO {
+  width: 100%;
+  aspect-ratio: 2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./styles/movie-relation.module.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.movie-relation_container__aUOjV {
+  display: grid;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.movie-relation_active__j_WSq {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.movie-relation_inActive__pHPbg {
+  color: gray;
+}
+
+.movie-relation_relationBtn__qdhqc {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+.movie-relation_relationBtn__qdhqc div {
+  transition: all 0.3s ease;
+  padding: 10px;
+}
+.movie-relation_relationBtn__qdhqc div:hover {
+  color: white;
+  border-bottom: 1px solid white;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./styles/modal.module.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.modal_container__AvKK5 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  transform: translate(50%, 50%);
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./styles/movie-credits.module.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.movie-credits_container__aNF5h {
+  display: grid;
+  /* grid-template-columns: repeat(6, 1fr); */
+  /* grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); */
+  grid-gap: 10px;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  /* margin: 0 auto; */
+  /* margin-top: 100px; */
+}
+
+.movie-credits_title__jAHm4 {
+  grid-column: 1/-1;
+  margin-bottom: 10px;
+  display: flex;
+  align-content: center;
+  gap: 20px;
+}
+.movie-credits_title__jAHm4 div {
+  font-size: xx-large;
+}
+.movie-credits_title__jAHm4 .movie-credits_sub___wNNT {
+  background-color: #000;
+  color: white;
+  font-size: medium;
+  padding: 8px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.movie-credits_credit__vM6Ro {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: center;
+  box-sizing: content-box;
+}
+
+.movie-credits_credit__vM6Ro img {
+  width: 100%;
+}
+
+.movie-credits_credit__vM6Ro .movie-credits_noImage__qELsB {
+  width: 100%;
+  aspect-ratio: 2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+}
+
+.movie-credits_credit__vM6Ro .movie-credits_characterName__ELZoT {
+  margin-top: 10px;
+  font-size: 16px;
+  color: darkorange;
+}
+
+.movie-credits_credit__vM6Ro .movie-credits_name__GY4kr {
+  font-size: 14px;
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./styles/movie-info.module.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.movie-info_container____ist {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 50px;
+  gap: 50px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.768627451);
+  padding: 30px;
+  border-radius: 20px;
+  border-bottom: 1px #333 solid;
+}
+@media (min-width: 335px) and (max-width: 1023px) {
+  .movie-info_container____ist {
+    display: block;
+  }
+}
+
+.movie-info_poster__DvyfM {
+  border-radius: 20px;
+  width: 100%;
+  /* place-self: center; */
+}
+
+.movie-info_title__1CdRP {
+  color: white;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.movie-info_info__nE_oz {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.movie-info_infoCustom__UBWXf {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.movie-info_infoCustom__UBWXf span {
+  color: gray;
+}
+
+.movie-info_genres__mqWQ6 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.movie-info_genres__mqWQ6 .movie-info_text__RP_bb {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: gray;
+  font-size: 14px;
+}
+
+.movie-info_overview__ZftPl {
+  letter-spacing: 2px;
+  line-height: 20px;
+}
+
+.movie-info_blurredBg__k7AyJ {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(40px); /* 블러 처리, 정도는 조절 가능 */
+  transform: scale(1); /* 조금 더 확대하여 블러 처리 강조 */
+  z-index: -1;
+  overflow: hidden;
+}
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./styles/movie-detail.module.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.movie-detail_container__GW7ZX {
+  width: 80%;
+  margin: 0 auto;
+}

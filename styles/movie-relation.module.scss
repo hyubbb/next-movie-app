@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.active {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.inActive {
+  color: gray;
+}
+
+.relationBtn {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+
+  div {
+    transition: all 0.3s ease;
+    padding: 10px;
+    &:hover {
+      color: white;
+      border-bottom: 1px solid white;
+    }
+  }
+}

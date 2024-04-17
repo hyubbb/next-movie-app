@@ -1,0 +1,28 @@
+.container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.container img {
+  width: 130px;
+}
+
+.card {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  width: 100%;
+  img {
+    width: 100%;
+    aspect-ratio: 2/3;
+  }
+}
+.noImage {
+  width: 100%;
+  aspect-ratio: 2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+}
