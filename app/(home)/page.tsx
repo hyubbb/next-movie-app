@@ -1,5 +1,5 @@
 import Movie from "../../components/movie/movie";
-import React from "react";
+import React, { Suspense } from "react";
 import styles from "../../styles/home.module.css";
 import { MOVIE_URL, TRENDING_URL, options } from "../constants";
 import MovieSection from "../../components/section/movie-section";
@@ -23,7 +23,9 @@ export default async function HomePage() {
 
   return (
     <div className={styles.container}>
-      <Upcoming />
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <Upcoming />
+      </Suspense>
       <MovieSection type='movie' />
       <MovieSection type='tv' />
     </div>

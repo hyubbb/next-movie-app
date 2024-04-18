@@ -15,7 +15,7 @@ const MovieCredits = ({ id, credits }) => {
 
   return (
     <>
-      {isModal && <Modal />}
+      {isModal && <Modal casts={casts} toggleModal={toggleModal} />}
       <div className={styles.container}>
         <div className={styles.title}>
           <div>Cast</div>

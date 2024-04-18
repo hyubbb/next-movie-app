@@ -1,23 +1,64 @@
+@import "../styles/mixin";
+
 .section {
-  display: flex;
+  flex-direction: column;
   width: 100%;
   overflow-y: scroll;
   margin: 0 auto;
-  max-width: 1280px;
+  // max-width: 1280px;
   h1 {
     font-size: x-large;
+    margin-bottom: 20px;
   }
   .movies {
-    min-width: 100%;
-    img {
+    width: 100%;
+    &::after {
+      content: "";
+      position: absolute;
       width: 100%;
-      aspect-ratio: 16/9;
-      max-width: 1280px;
-      border-radius: 20px;
+      height: 50%;
+      bottom: 0;
+      left: 0;
+      // background-image: linear-gradient(
+      //   180deg,
+      //   transparent 40%,
+      //   rgba(0, 0, 0, 0.7)
+      // );
     }
   }
+}
 
-  .swiper-pagination-bullet-active {
-    background-color: white !important;
+.img {
+  // height: auto; /* 이미지 원본 비율 유지 */
+  max-width: 100%; /* 슬라이드 너비에 맞춤 */
+  border-radius: 10px;
+}
+.desc {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  text-align: right;
+  display: grid;
+  gap: 10px;
+  .title {
+    font-weight: 700;
+    font-size: 2em;
+  }
+  .date {
+    font-size: larger;
+  }
+  .overview {
+    font-size: medium;
+    width: 300px;
+    // color: #84868d;
+  }
+  @include tablet {
+    .title {
+      font-size: larger;
+    }
+    .date {
+      font-size: small;
+    }
   }
 }

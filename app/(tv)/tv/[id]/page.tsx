@@ -1,6 +1,5 @@
 import { Suspense } from "react";
-import MovieInfo, { getMovie } from "../../../../components/movie/movie-info";
-import MovieVideos from "../../../../components/movie/movie-videos";
+import MovieInfo, { getMovie } from "../../../../components/tv/tv-info";
 import MovieRelations from "../../../../components/detail/movie-relation";
 import styles from "../../../../styles/movie-detail.module.scss";
 interface IParams {

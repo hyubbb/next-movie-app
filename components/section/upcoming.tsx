@@ -1,14 +1,11 @@
 "use client";
-import styles from "../../styles/upcoming.module.scss";
 import { API_URL, IMG_URL, options } from "../../app/constants";
-// import Swiper bundle with all modules installed
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import SwiperCore from "swiper";
-// import styles bundle
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { EffectCoverflow, Pagination } from "swiper/modules";
+
+import styles from "../../styles/upcoming.module.scss";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const getMovies = async () => {
   try {
@@ -23,31 +20,58 @@ const getMovies = async () => {
   }
 };
 
-export default async function Upcoming() {
-  const movies = await getMovies();
+export default function Upcoming() {
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    const fetchMovie = async () => {
+      const data = await getMovies();
+      setMovies(data);
+    };
+    fetchMovie();
+  }, []);
 
-  SwiperCore.use([Navigation, Autoplay, Pagination]);
-
+  // 이미지 없는 영화 필터
+  const newMovie = movies.filter(({ backdrop_path }) => backdrop_path);
   return (
     <section className={`${styles.section} swiper-container`}>
-      {/* <h1>Upcoming</h1> */}
+      <h1>Upcoming Movie</h1>
       <Swiper
-        loop={true} // 슬라이드 루프
-        spaceBetween={50} // 슬라이스 사이 간격
-        slidesPerView={1} // 보여질 슬라이스 수
-        pagination={true}
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        modules={[EffectCoverflow, Pagination]}
+        loop={true}
+        spaceBetween={20}
+        slidesPerView={2}
+        pagination={{ clickable: true }}
+        coverflowEffect={{
+          rotate: 30,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
         autoplay={{
-          delay: 4000,
-          disableOnInteraction: false, // 사용자 상호작용시 슬라이더 일시 정지 비활성
+          delay: 3000,
+          disableOnInteraction: true,
         }}
       >
-        {movies.map((movie) => {
+        {newMovie.map((movie) => {
+          const { backdrop_path, overview, title, release_date, id } = movie;
           return (
             <SwiperSlide key={movie.id}>
-              <div className={styles.movies}>
-                <img src={`${IMG_URL}/${movie.backdrop_path}`} alt='' />
-                {/* <div>{movie.title}</div> */}
-              </div>
+              <Link prefetch href={`/movies/${id}`}>
+                <img
+                  src={`${IMG_URL}/${backdrop_path}`}
+                  alt={title}
+                  className={styles.img}
+                />
+                <div className={styles.desc}>
+                  <div className={styles.title}>{title}</div>
+                  <div className={styles.date}>개봉일 : {release_date}</div>
+                  {/* <div className={styles.overview}>{overview}</div> */}
+                </div>
+              </Link>
             </SwiperSlide>
           );
         })}

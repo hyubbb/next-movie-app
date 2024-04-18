@@ -1,5 +1,9 @@
 import { Metadata } from "next";
 import { Navigation } from "../components/navigation";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
 import "../styles/global.css";
 
 export const metadata: Metadata = {

@@ -1,4 +1,10 @@
+@import "../styles/mixin";
+
 .container {
   width: 80%;
   margin: 0 auto;
+
+  @include tablet {
+    width: 90%;
+  }
 }
