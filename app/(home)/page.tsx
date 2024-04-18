@@ -1,7 +1,7 @@
 import Movie from "../../components/movie/movie";
 import React, { Suspense } from "react";
 import styles from "../../styles/home.module.css";
-import { MOVIE_URL, TRENDING_URL, options } from "../constants";
+import { MOVIE_URL, options } from "../constants";
 import MovieSection from "../../components/section/movie-section";
 import Upcoming from "../../components/section/upcoming";
 export const metadata = {
