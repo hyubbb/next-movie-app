@@ -157,6 +157,7 @@
   justify-content: center;
   align-items: center;
   border: 1px solid white;
+  box-sizing: border-box;
 }
 .modal_casts__ay3wE .modal_characterName__W1vZE {
   margin-top: 10px;
