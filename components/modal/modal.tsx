@@ -11,8 +11,8 @@ export default function Modal({ casts, toggleModal }) {
   }, []);
   return (
     <div className={styles.container}>
+      <button onClick={toggleModal}>X</button>
       <div className={styles.castBox}>
-        <button onClick={toggleModal}>X</button>
         <div className={styles.casts}>
           {casts.map((cast, idx) => {
             const { profile_path, name, character } = cast;
