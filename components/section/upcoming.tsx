@@ -1,7 +1,7 @@
 "use client";
 import { API_URL, IMG_URL, options } from "../../app/constants";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
 
 import styles from "../../styles/upcoming.module.scss";
 import Link from "next/link";
@@ -36,6 +36,7 @@ export default function Upcoming() {
     <section className={`${styles.section} swiper-container`}>
       <h1>Upcoming Movie</h1>
       <Swiper
+        key={newMovie.length}
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
@@ -53,7 +54,7 @@ export default function Upcoming() {
         }}
         autoplay={{
           delay: 3000,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         }}
       >
         {newMovie.map((movie) => {
