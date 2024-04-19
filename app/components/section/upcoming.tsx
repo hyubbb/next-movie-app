@@ -67,7 +67,7 @@ export default function Upcoming() {
                   src={`${IMG_URL}${backdrop_path}`}
                   alt={title}
                   fill
-                  sizes='300px'
+                  sizes='1000px'
                   priority={true}
                 />
                 <div className={styles.desc}>

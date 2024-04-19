@@ -82,7 +82,7 @@ export default async function TvInfo({ id, type }) {
         src={`${IMG_URL}${poster_path}`}
         alt={title}
         fill
-        sizes='300px'
+        sizes='500px'
       />
     </div>
   );

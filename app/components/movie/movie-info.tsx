@@ -36,7 +36,7 @@ export default async function MovieInfo({ id, type }) {
         alt={title || name}
         fill
         priority={true}
-        sizes='300px'
+        sizes='500px'
       />
       <div className={styles.info}>
         <h1 className={styles.title}>{title || name}</h1>

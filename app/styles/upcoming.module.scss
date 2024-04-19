@@ -13,8 +13,7 @@
 .movie {
   position: relative;
   img {
-    // height: auto; /* 이미지 원본 비율 유지 */
-    max-width: 100%; /* 슬라이드 너비에 맞춤 */
+    max-width: 100%;
     border-radius: 10px;
     width: 100%;
     height: fit-content !important;
