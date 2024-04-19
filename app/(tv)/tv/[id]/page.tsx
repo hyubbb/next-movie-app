@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import MovieInfo, { getMovie } from "../../../../components/tv/tv-info";
-import MovieRelations from "../../../../components/detail/movie-relation";
-import styles from "../../../../styles/movie-detail.module.scss";
+import MovieRelations from "../../../components/detail/movie-relation";
+import styles from "../../../styles/movie-detail.module.scss";
+import TvInfo, { getMovie } from "../../../components/tv/tv-info";
 interface IParams {
   params: { id: string };
 }
@@ -17,7 +17,7 @@ const tvDetailPage = async ({ params: { id } }: IParams) => {
   return (
     <div className={styles.container}>
       <Suspense fallback={<h1>Loading movie info</h1>}>
-        <MovieInfo id={id} type={"tv"} />
+        <TvInfo id={id} type={"tv"} />
       </Suspense>
       <MovieRelations id={id} type={"tv"} />
     </div>

@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.genre {
+  padding: 8px;
+  background: white;
+  color: black;
+  border-radius: 3px;
+  box-sizing: border-box;
+  text-wrap: nowrap;
+  font-size: medium;
+}

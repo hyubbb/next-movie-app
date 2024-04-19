@@ -1,9 +1,8 @@
-import Movie from "../../components/movie/movie";
 import React, { Suspense } from "react";
-import styles from "../../styles/home.module.css";
+import styles from "../styles/home.module.scss";
 import { MOVIE_URL, options } from "../constants";
-import MovieSection from "../../components/section/movie-section";
-import Upcoming from "../../components/section/upcoming";
+import MovieSection from "../components/section/movie-section";
+import Upcoming from "../components/section/upcoming";
 export const metadata = {
   title: "Home",
 };

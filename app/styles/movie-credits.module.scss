@@ -1,0 +1,50 @@
+@import "../styles/mixin";
+.container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+}
+
+.title {
+  @include flexBox(initial, center);
+  grid-column: 1 / -1;
+  margin-bottom: 10px;
+  gap: 20px;
+  div {
+    font-size: xx-large;
+  }
+  .sub {
+    background-color: #000;
+    color: white;
+    font-size: medium;
+    padding: 8px;
+    border: 1px solid white;
+    border-radius: 10px;
+  }
+}
+
+.credit {
+  display: flex;
+  flex-direction: column;
+  box-sizing: content-box;
+  img {
+    width: 100%;
+  }
+  .noImage {
+    width: 100%;
+    aspect-ratio: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+  }
+
+  .characterName {
+    margin-top: 10px;
+    font-size: 16px;
+    color: darkorange;
+  }
+  .name {
+    font-size: 14px;
+  }
+}
