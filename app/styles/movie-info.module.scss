@@ -18,6 +18,8 @@
 .poster {
   border-radius: 20px;
   width: 100%;
+  height: fit-content !important;
+  position: relative !important;
 }
 
 .title {

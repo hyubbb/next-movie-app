@@ -2,23 +2,30 @@
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./app/styles/movie.module.scss ***!
   \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 .movie_movie__dzsKL {
+  position: relative;
   cursor: pointer;
   place-items: center;
   white-space: nowrap;
   max-width: 200px;
 }
-.movie_movie__dzsKL img {
+.movie_movie__dzsKL a {
+  position: relative;
+}
+.movie_movie__dzsKL a img {
   max-width: 100%;
   min-height: 100%;
   border-radius: 5px;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+  position: relative !important;
   transition: all 0.3s ease-in-out;
   opacity: 1;
 }
-.movie_movie__dzsKL img:hover {
+.movie_movie__dzsKL a img:hover {
   opacity: 0.8;
   transform: scale(1.1);
 }
-.movie_movie__dzsKL img .movie_movie__dzsKL a {
+.movie_movie__dzsKL .movie_movie__dzsKL a {
   height: 100%;
 }
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -61,21 +68,17 @@
   font-weight: 600;
   margin-bottom: 20px;
 }
-.upcoming_section__D4eXA .upcoming_movies__vOElh {
-  width: 100%;
-}
-.upcoming_section__D4eXA .upcoming_movies__vOElh::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  bottom: 0;
-  left: 0;
-}
 
-.upcoming_img__18HeH {
+.upcoming_movie__7Zvu_ {
+  position: relative;
+}
+.upcoming_movie__7Zvu_ img {
   max-width: 100%; /* 슬라이드 너비에 맞춤 */
   border-radius: 10px;
+  width: 100%;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+  position: relative !important;
 }
 
 .upcoming_desc__c7k45 {

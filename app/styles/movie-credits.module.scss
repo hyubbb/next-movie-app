@@ -27,8 +27,11 @@
   display: flex;
   flex-direction: column;
   box-sizing: content-box;
+  position: relative;
   img {
     width: 100%;
+    height: fit-content !important;
+    position: relative !important;
   }
   .noImage {
     width: 100%;

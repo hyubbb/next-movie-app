@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { IMG_URL } from "../../constants";
 import styles from "../../styles/movie-credits.module.scss";
 import Modal from "../modal/modal";
+import Image from "next/image";
 
 const MovieCredits = ({ id, credits }) => {
   const { cast: casts } = credits;
@@ -31,7 +32,12 @@ const MovieCredits = ({ id, credits }) => {
             return (
               <div key={idx} className={styles.credit}>
                 {profile_path ? (
-                  <img src={`${IMG_URL}${profile_path}`} alt='' />
+                  <Image
+                    src={`${IMG_URL}${profile_path}`}
+                    alt={name}
+                    fill
+                    sizes='300px'
+                  />
                 ) : (
                   <div className={styles.noImage}>no image</div>
                 )}

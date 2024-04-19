@@ -7,6 +7,7 @@ import { IMG_URL } from "../../constants";
 import { useSetRecoilState } from "recoil";
 import { isSearchOpenState, isSearchTerm } from "../../state/atom";
 import { IMovie } from "../../types/type";
+import Image from "next/image";
 
 interface IMovieProps {
   movie: IMovie;
@@ -28,9 +29,11 @@ const Movie = ({ movie }: IMovieProps) => {
   return (
     <div className={styles.movie}>
       <Link prefetch href={`/${whatType}/${id}`}>
-        <img
+        <Image
           src={`${IMG_URL}${poster_path}`}
           alt={title || name}
+          fill
+          sizes='300px'
           onClick={onClick}
         />
       </Link>

@@ -13,9 +13,11 @@
   gap: 10px;
   flex-direction: column;
   width: 100%;
+  position: relative;
   img {
     width: 100%;
-    aspect-ratio: 2/3;
+    height: fit-content !important;
+    position: relative !important;
   }
 }
 .noImage {

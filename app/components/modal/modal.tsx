@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { IMG_URL } from "../../constants";
 import styles from "../../styles/modal.module.scss";
 import useOutsideClick from "../../hooks/useOutsideClick";
+import Image from "next/image";
 
 export default function Modal({ casts, toggleModal }) {
   const modalRef = useRef(null);
@@ -24,7 +25,12 @@ export default function Modal({ casts, toggleModal }) {
             return (
               <div key={idx} className={styles.card}>
                 {profile_path ? (
-                  <img src={`${IMG_URL}${profile_path}`} alt='' />
+                  <Image
+                    src={`${IMG_URL}${profile_path}`}
+                    alt={name}
+                    fill
+                    sizes='300px'
+                  />
                 ) : (
                   <div className={styles.noImage}>no image</div>
                 )}

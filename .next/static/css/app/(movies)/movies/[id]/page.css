@@ -50,10 +50,13 @@
   gap: 10px;
   flex-direction: column;
   width: 100%;
+  position: relative;
 }
 .movie-similar_card__FzT4B img {
   width: 100%;
-  aspect-ratio: 2/3;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+  position: relative !important;
 }
 
 .movie-similar_noImage__2ib_3 {
@@ -146,10 +149,16 @@
   box-sizing: border-box;
   overflow: scroll;
 }
-.modal_casts__atkO_ img {
-  width: 100%;
+.modal_casts__atkO_ .modal_card__W2WLi {
+  position: relative;
 }
-.modal_casts__atkO_ .modal_noImage__BvcLd {
+.modal_casts__atkO_ .modal_card__W2WLi img {
+  width: 100%;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+  position: relative !important;
+}
+.modal_casts__atkO_ .modal_card__W2WLi .modal_noImage__BvcLd {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,12 +167,12 @@
   border: 1px solid white;
   box-sizing: border-box;
 }
-.modal_casts__atkO_ .modal_characterName__FbH3i {
+.modal_casts__atkO_ .modal_card__W2WLi .modal_characterName__FbH3i {
   margin-top: 10px;
   font-size: 16px;
   color: darkorange;
 }
-.modal_casts__atkO_ .modal_name__Gd0fC {
+.modal_casts__atkO_ .modal_card__W2WLi .modal_name__Gd0fC {
   font-size: 14px;
 }
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -200,9 +209,13 @@
   display: flex;
   flex-direction: column;
   box-sizing: content-box;
+  position: relative;
 }
 .movie-credits_credit__hpHE1 img {
   width: 100%;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+  position: relative !important;
 }
 .movie-credits_credit__hpHE1 .movie-credits_noImage__iV8FO {
   width: 100%;
@@ -245,6 +258,9 @@
 .movie-info_poster__UkCVM {
   border-radius: 20px;
   width: 100%;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+  position: relative !important;
 }
 
 .movie-info_title__QEd3q {

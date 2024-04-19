@@ -1,11 +1,12 @@
 "use client";
 import { API_URL, IMG_URL, options } from "../../constants";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
+import { EffectCoverflow, Pagination } from "swiper/modules";
 
 import styles from "../../styles/upcoming.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const getMovies = async () => {
   try {
@@ -61,11 +62,13 @@ export default function Upcoming() {
           const { backdrop_path, overview, title, release_date, id } = movie;
           return (
             <SwiperSlide key={movie.id}>
-              <Link prefetch href={`/movies/${id}`}>
-                <img
-                  src={`${IMG_URL}/${backdrop_path}`}
+              <Link prefetch href={`/movies/${id}`} className={styles.movie}>
+                <Image
+                  src={`${IMG_URL}${backdrop_path}`}
                   alt={title}
-                  className={styles.img}
+                  fill
+                  sizes='300px'
+                  priority={true}
                 />
                 <div className={styles.desc}>
                   <div className={styles.title}>{title}</div>

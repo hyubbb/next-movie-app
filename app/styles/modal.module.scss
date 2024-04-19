@@ -1,4 +1,5 @@
 @import "../styles/mixin";
+
 .container {
   @include flexBox(center, center);
   position: fixed;
@@ -41,24 +42,28 @@
   height: 100%;
   box-sizing: border-box;
   overflow: scroll;
+  .card {
+    position: relative;
+    img {
+      width: 100%;
+      height: fit-content !important;
+      position: relative !important;
+    }
+    .noImage {
+      @include flexBox(center, center);
+      width: 100%;
+      aspect-ratio: 2/3;
+      border: 1px solid white;
+      box-sizing: border-box;
+    }
 
-  img {
-    width: 100%;
-  }
-  .noImage {
-    @include flexBox(center, center);
-    width: 100%;
-    aspect-ratio: 2/3;
-    border: 1px solid white;
-    box-sizing: border-box;
-  }
-
-  .characterName {
-    margin-top: 10px;
-    font-size: 16px;
-    color: darkorange;
-  }
-  .name {
-    font-size: 14px;
+    .characterName {
+      margin-top: 10px;
+      font-size: 16px;
+      color: darkorange;
+    }
+    .name {
+      font-size: 14px;
+    }
   }
 }

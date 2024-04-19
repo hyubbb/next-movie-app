@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { IMG_URL, MOVIE_DETAIL_URL, options } from "../../constants";
 import styles from "../../styles/movie-info.module.scss";
 import MovieCredits from "./movie-credits";
+import Image from "next/image";
 
 export const getMovie = async ({ id, type }: { id: string; type: string }) => {
   const response = await fetch(
@@ -29,7 +30,14 @@ export default async function MovieInfo({ id, type }) {
 
   return (
     <div className={styles.container}>
-      <img src={`${IMG_URL}${poster_path}`} className={styles.poster} />
+      <Image
+        className={styles.poster}
+        src={`${IMG_URL}${poster_path}`}
+        alt={title || name}
+        fill
+        priority={true}
+        sizes='300px'
+      />
       <div className={styles.info}>
         <h1 className={styles.title}>{title || name}</h1>
         <div className={styles.genres}>
@@ -64,10 +72,14 @@ export default async function MovieInfo({ id, type }) {
 
         <MovieCredits id={id} credits={credits} />
       </div>
-      <img
+
+      <Image
         className={styles.blurredBg}
         src={`${IMG_URL}${poster_path}`}
         alt={title}
+        fill
+        priority={false}
+        sizes='300px'
       />
     </div>
   );
