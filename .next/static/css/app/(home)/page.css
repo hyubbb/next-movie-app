@@ -115,7 +115,77 @@
 .home_container__WLNfO {
   display: flex;
   flex-direction: column;
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
   gap: 30px;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./app/components/commons/spinner.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.spinner_container__ugnoI {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.spinner_loader__jxyVU {
+  --dim: 3rem;
+  width: var(--dim);
+  height: var(--dim);
+  position: relative;
+  animation: spinner_spin988__HTm9F 2s linear infinite;
+}
+
+.spinner_loader__jxyVU .spinner_circle__ROHsY {
+  --color: white;
+  --dim: 1.2rem;
+  width: var(--dim);
+  height: var(--dim);
+  background-color: var(--color);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.spinner_loader__jxyVU .spinner_circle__ROHsY:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.spinner_loader__jxyVU .spinner_circle__ROHsY:nth-child(2) {
+  top: 0;
+  right: 0;
+}
+
+.spinner_loader__jxyVU .spinner_circle__ROHsY:nth-child(3) {
+  bottom: 0;
+  left: 0;
+}
+
+.spinner_loader__jxyVU .spinner_circle__ROHsY:nth-child(4) {
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes spinner_spin988__HTm9F {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+  20%, 25% {
+    transform: scale(1.3) rotate(90deg);
+  }
+  45%, 50% {
+    transform: scale(1) rotate(180deg);
+  }
+  70%, 75% {
+    transform: scale(1.3) rotate(270deg);
+  }
+  95%, 100% {
+    transform: scale(1) rotate(360deg);
+  }
 }

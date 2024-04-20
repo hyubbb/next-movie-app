@@ -42,10 +42,18 @@ export default function MovieSection({ type }) {
     <section className={`${styles.section} swiper-container`}>
       <h1>{toUpperType}</h1>
       <Swiper
-        spaceBetween={20}
-        slidesPerView={7}
         navigation
         modules={[Navigation]}
+        breakpoints={{
+          320: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+          780: {
+            slidesPerView: 7,
+            spaceBetween: 20,
+          },
+        }}
       >
         <div className={`${styles.movies} swiper-wrapper`}>
           {movies.map((movie) => {

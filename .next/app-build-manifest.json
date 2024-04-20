@@ -11,6 +11,18 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
+    "/(home)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(home)/page.css",
+      "static/chunks/app/(home)/page.js"
+    ],
+    "/(home)/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(home)/loading.css",
+      "static/chunks/app/(home)/loading.js"
+    ],
     "/(movies)/movies/[id]/error": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -21,17 +33,6 @@
       "static/chunks/main-app.js",
       "static/css/app/(movies)/movies/[id]/page.css",
       "static/chunks/app/(movies)/movies/[id]/page.js"
-    ],
-    "/(home)/loading": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(home)/loading.js"
-    ],
-    "/(home)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(home)/page.css",
-      "static/chunks/app/(home)/page.js"
     ],
     "/(tv)/tv/[id]/error": [
       "static/chunks/webpack.js",

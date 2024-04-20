@@ -9,9 +9,10 @@ import Genre from "./genre";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import { useSetRecoilState } from "recoil";
 import { isSearchOpenState } from "../../state/atom";
+import Spinner from "../commons/Spinner";
 
 export default function Search() {
-  const { reset, debouncedValue, ...inputProps } = useInput("");
+  const { reset, setValue, debouncedValue, ...inputProps } = useInput("");
   const [searchData, setSearchData] = useState([]);
   const searchRef = useRef(null);
   const setIsSearchOpen = useSetRecoilState(isSearchOpenState);
@@ -19,6 +20,7 @@ export default function Search() {
   useOutsideClick(searchRef, () => {
     setIsSearchOpen((prev) => !prev);
     document.body.style.overflow = "unset";
+    setValue("");
   });
 
   const handlerSearch = async () => {
@@ -38,10 +40,10 @@ export default function Search() {
     <div className={styles.container}>
       <div className={styles.searchBox} ref={searchRef}>
         <InputField inputProps={inputProps} />
-        <Suspense fallback={<h1>Loading ...</h1>}>
+        <Suspense fallback={<Spinner />}>
           <Genre setSearchData={setSearchData} />
         </Suspense>
-        <Suspense fallback={<h1>Loading ...</h1>}>
+        <Suspense fallback={<Spinner />}>
           <MovieCard movies={searchData} />
         </Suspense>
       </div>

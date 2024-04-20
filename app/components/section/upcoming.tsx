@@ -43,8 +43,6 @@ export default function Upcoming() {
         centeredSlides={true}
         modules={[EffectCoverflow, Pagination]}
         loop={true}
-        spaceBetween={20}
-        slidesPerView={2}
         pagination={{ clickable: true }}
         coverflowEffect={{
           rotate: 30,
@@ -57,9 +55,20 @@ export default function Upcoming() {
           delay: 3000,
           disableOnInteraction: false,
         }}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          780: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+        }}
       >
         {newMovie.map((movie) => {
           const { backdrop_path, overview, title, release_date, id } = movie;
+
           return (
             <SwiperSlide key={movie.id}>
               <Link prefetch href={`/movies/${id}`} className={styles.movie}>

@@ -33,6 +33,7 @@ export default function useInput(initialValue) {
 
   return {
     value,
+    setValue,
     onChange: handleChange,
     debouncedValue, // 디바운스된 값을 반환
     reset,

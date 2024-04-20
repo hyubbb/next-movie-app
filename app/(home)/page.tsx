@@ -3,6 +3,7 @@ import styles from "../styles/home.module.scss";
 import { MOVIE_URL, options } from "../constants";
 import MovieSection from "../components/section/movie-section";
 import Upcoming from "../components/section/upcoming";
+import Spinner from "../components/commons/Spinner";
 export const metadata = {
   title: "Home",
 };
@@ -22,11 +23,15 @@ export default async function HomePage() {
 
   return (
     <div className={styles.container}>
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Spinner />}>
         <Upcoming />
       </Suspense>
-      <MovieSection type='movie' />
-      <MovieSection type='tv' />
+      <Suspense fallback={<Spinner />}>
+        <MovieSection type='movie' />
+      </Suspense>
+      <Suspense fallback={<Spinner />}>
+        <MovieSection type='tv' />
+      </Suspense>
     </div>
   );
 }

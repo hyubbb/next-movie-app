@@ -1,8 +1,10 @@
 import React, { Suspense } from "react";
-import { API_URL, IMG_URL, MOVIE_DETAIL_URL, options } from "../../constants";
+import { IMG_URL, MOVIE_DETAIL_URL, options } from "../../constants";
 import styles from "../../styles/movie-info.module.scss";
-import MovieCredits from "../movie/movie-credits";
+import MovieCredits from "../movie/info/movie-credits";
 import Image from "next/image";
+import Spinner from "../commons/Spinner";
+import getBase64 from "../../utils/getBase64";
 
 export const getMovie = async ({ id, type }: { id: string; type: string }) => {
   const response = await fetch(
@@ -27,15 +29,23 @@ export default async function TvInfo({ id, type }) {
     credits,
     created_by,
   } = movie;
+  const {
+    base64,
+    img: { width, height },
+  } = await getBase64(`${IMG_URL}${poster_path}`);
 
   return (
     <div className={styles.container}>
       <Image
         className={styles.poster}
         src={`${IMG_URL}${poster_path}`}
-        alt={title}
-        fill
-        sizes='300px'
+        alt={title || name}
+        priority={true}
+        width={width}
+        height={height}
+        sizes='500px'
+        placeholder='blur'
+        blurDataURL={base64}
       />
       <div className={styles.info}>
         <h1 className={styles.title}>{title || name}</h1>
@@ -72,7 +82,7 @@ export default async function TvInfo({ id, type }) {
           </a>
         )}
 
-        <Suspense fallback={<h1>Loading credits</h1>}>
+        <Suspense fallback={<Spinner />}>
           <MovieCredits id={id} credits={credits} />
         </Suspense>
       </div>
@@ -80,7 +90,7 @@ export default async function TvInfo({ id, type }) {
       <Image
         className={styles.blurredBg}
         src={`${IMG_URL}${poster_path}`}
-        alt={title}
+        alt={title || name}
         fill
         sizes='500px'
       />
