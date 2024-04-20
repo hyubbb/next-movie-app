@@ -155,7 +155,7 @@
 .movie-videos_container__jQzuG iframe:hover {
   opacity: 1;
 }
-@media (min-width: 335px) and (max-width: 1023px) {
+@media (min-width: 0) and (max-width: 1023px) {
   .movie-videos_container__jQzuG {
     width: 90%;
   }
@@ -319,7 +319,7 @@
   border-radius: 20px;
   border-bottom: 1px #333 solid;
 }
-@media (min-width: 335px) and (max-width: 1023px) {
+@media (min-width: 0) and (max-width: 1023px) {
   .movie-info_container__hxVPu {
     display: block;
   }
@@ -369,6 +369,7 @@
   border-radius: 10px;
   background-color: gray;
   font-size: 14px;
+  text-wrap: nowrap;
 }
 
 .movie-info_overview__CU0sH {
@@ -396,7 +397,7 @@
   margin: 0 auto;
   position: relative;
 }
-@media (min-width: 335px) and (max-width: 1023px) {
+@media (min-width: 0) and (max-width: 1023px) {
   .movie-detail_container__hSplp {
     width: 90%;
   }

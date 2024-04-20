@@ -101,7 +101,7 @@
   font-size: medium;
   width: 300px;
 }
-@media (min-width: 335px) and (max-width: 1023px) {
+@media (min-width: 0) and (max-width: 1023px) {
   .upcoming_desc__c7k45 .upcoming_title__VbmGK {
     font-size: larger;
   }

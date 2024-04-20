@@ -845,6 +845,7 @@
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   overflow: auto;
+  padding: 3%;
 }
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./app/styles/movie.module.scss ***!
@@ -883,6 +884,8 @@
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  border-bottom: 2px solid white;
+  padding-bottom: 20px;
 }
 
 .genre_genre__DvRub {
@@ -893,6 +896,12 @@
   box-sizing: border-box;
   text-wrap: nowrap;
   font-size: medium;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.genre_genre__DvRub:hover {
+  background-color: black;
+  color: white;
 }
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[11].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[11].oneOf[9].use[5]!./app/components/commons/spinner.module.scss ***!
@@ -990,6 +999,11 @@
 }
 .navigation_nav__edKiB ul a {
   text-decoration: none;
+}
+@media (min-width: 0) and (max-width: 1023px) {
+  .navigation_nav__edKiB {
+    padding: 30px 0px;
+  }
 }
 
 .navigation_logo__eYrjD {
