@@ -1,0 +1,91 @@
+[debug] [2024-04-20T14:36:35.628Z] ----------------------------------------------------------------------
+[debug] [2024-04-20T14:36:35.630Z] Command:       /Users/hyublee/.nvm/versions/node/v21.5.0/bin/node /Users/hyublee/.nvm/versions/node/v21.5.0/bin/firebase init
+[debug] [2024-04-20T14:36:35.630Z] CLI Version:   13.7.3
+[debug] [2024-04-20T14:36:35.630Z] Platform:      darwin
+[debug] [2024-04-20T14:36:35.630Z] Node Version:  v21.5.0
+[debug] [2024-04-20T14:36:35.630Z] Time:          Sat Apr 20 2024 23:36:35 GMT+0900 (대한민국 표준시)
+[debug] [2024-04-20T14:36:35.630Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-20T14:36:35.662Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-20T14:36:35.663Z] > authorizing via signed-in user (dlckdguq1011@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/hyublee/Desktop/hyub/dev/learn-nextjs14
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-04-20T14:36:39.648Z] Using project from CLI flag: react-poke-app-cdf6f
+[debug] [2024-04-20T14:36:39.649Z] > refreshing access token with scopes: []
+[debug] [2024-04-20T14:36:39.650Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-04-20T14:36:39.650Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-20T14:36:39.930Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2024-04-20T14:36:39.930Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-20T14:36:39.931Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-poke-app-cdf6f [none]
+[debug] [2024-04-20T14:36:40.133Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/react-poke-app-cdf6f 401
+[debug] [2024-04-20T14:36:40.133Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/react-poke-app-cdf6f {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2024-04-20T14:36:40.133Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2024-04-20T14:36:40.309Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (/Users/hyublee/.nvm/versions/node/v21.5.0/lib/node_modules/firebase-tools/lib/responseToError.js:49:12)
+    at RetryOperation._fn (/Users/hyublee/.nvm/versions/node/v21.5.0/lib/node_modules/firebase-tools/lib/apiv2.js:299:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project react-poke-app-cdf6f. Please make sure the project exists and your account has permission to access it.
+[debug] [2024-04-20T14:37:15.565Z] ----------------------------------------------------------------------
+[debug] [2024-04-20T14:37:15.567Z] Command:       /Users/hyublee/.nvm/versions/node/v21.5.0/bin/node /Users/hyublee/.nvm/versions/node/v21.5.0/bin/firebase init
+[debug] [2024-04-20T14:37:15.567Z] CLI Version:   13.7.3
+[debug] [2024-04-20T14:37:15.567Z] Platform:      darwin
+[debug] [2024-04-20T14:37:15.567Z] Node Version:  v21.5.0
+[debug] [2024-04-20T14:37:15.567Z] Time:          Sat Apr 20 2024 23:37:15 GMT+0900 (대한민국 표준시)
+[debug] [2024-04-20T14:37:15.568Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-20T14:37:15.571Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-20T14:37:15.571Z] > authorizing via signed-in user (dlckdguq1011@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/hyublee/Desktop/hyub/dev/learn-nextjs14
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-04-20T14:37:23.430Z] > refreshing access token with scopes: []
+[debug] [2024-04-20T14:37:23.432Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-04-20T14:37:23.432Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-20T14:37:23.669Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2024-04-20T14:37:23.669Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-20T14:37:23.670Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-04-20T14:37:23.872Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 401
+[debug] [2024-04-20T14:37:23.872Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2024-04-20T14:37:23.873Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2024-04-20T14:37:24.102Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (/Users/hyublee/.nvm/versions/node/v21.5.0/lib/node_modules/firebase-tools/lib/responseToError.js:49:12)
+    at RetryOperation._fn (/Users/hyublee/.nvm/versions/node/v21.5.0/lib/node_modules/firebase-tools/lib/apiv2.js:299:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.

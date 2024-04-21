@@ -12,7 +12,7 @@ const getMovies = async () => {
   try {
     const response = await fetch(
       `${API_URL}/movie/upcoming?language=ko&page=1&region=kr`,
-      options
+      options,
     );
     const { results } = await response.json();
     return results;
@@ -76,7 +76,7 @@ export default function Upcoming() {
                   src={`${IMG_URL}${backdrop_path}`}
                   alt={title}
                   fill
-                  sizes='1000px'
+                  sizes="1000px"
                   priority={true}
                 />
                 <div className={styles.desc}>

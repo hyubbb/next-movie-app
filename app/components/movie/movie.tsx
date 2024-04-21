@@ -11,13 +11,14 @@ import Image from "next/image";
 
 interface IMovieProps {
   movie: IMovie;
+  type?: string;
 }
 
-const Movie = ({ movie }: IMovieProps) => {
+const Movie = ({ movie, type }: IMovieProps) => {
   const { id, title, poster_path, name, media_type } = movie;
   const setIsSearchOpen = useSetRecoilState(isSearchOpenState);
   const setValue = useSetRecoilState(isSearchTerm);
-  const whatType = media_type === "tv" ? "tv" : "movies";
+  const whatType = (type || media_type) === "tv" ? "tv" : "movies";
   const router = useRouter();
   const onClick = () => {
     router.push(`/${whatType}/${id}`);
@@ -33,7 +34,7 @@ const Movie = ({ movie }: IMovieProps) => {
           src={`${IMG_URL}${poster_path}`}
           alt={title || name}
           fill
-          sizes='300px'
+          sizes="300px"
           onClick={onClick}
         />
       </Link>

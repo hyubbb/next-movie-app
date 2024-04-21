@@ -22,10 +22,20 @@
   position: relative !important;
 }
 
-.title {
-  color: white;
-  font-size: 36px;
-  font-weight: 600;
+.titleBox {
+  @include flexBox(normal, center);
+  gap: 5%;
+  font-size: xx-large;
+  .title {
+    color: white;
+    font-size: 36px;
+    font-weight: 600;
+  }
+}
+
+.like {
+  display: flex;
+  align-items: center;
 }
 
 .info {
@@ -35,7 +45,7 @@
   gap: 20px;
 }
 
-.infoCustom {
+.description {
   @include flexBox(initial, center);
   flex-direction: row;
   gap: 10px;

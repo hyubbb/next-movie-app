@@ -11,13 +11,21 @@
   box-sizing: border-box;
   z-index: 10;
   ul {
-    color: dodgerblue;
-    display: flex;
+    color: #40c057;
+    @include flexBox(space-between, center);
     font-size: xx-large;
     gap: 30px;
     width: 90%;
+    li {
+      display: flex;
+      gap: 20px;
+    }
     a {
       text-decoration: none;
+      display: flex;
+      &.login {
+        color: darkred;
+      }
     }
   }
 
@@ -26,9 +34,6 @@
   }
 }
 
-.logo {
-  @include flexBox(space-between, normal);
-}
 .search {
   @include flexBox(center, center);
   color: white;

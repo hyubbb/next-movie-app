@@ -9,8 +9,9 @@ import Spinner from "../commons/Spinner";
 export default function MovieRelations({ id, type }) {
   const [isActive, setIsActive] = useState(true);
 
-  const handlerBtn = () => {
-    setIsActive(!isActive);
+  const handlerBtn = (type) => {
+    const newType = type || false;
+    setIsActive(newType);
   };
 
   return (
@@ -18,13 +19,13 @@ export default function MovieRelations({ id, type }) {
       <div className={styles.relationBtn}>
         <div
           className={isActive ? styles.active : styles.inActive}
-          onClick={handlerBtn}
+          onClick={() => handlerBtn(true)}
         >
           관련 영상
         </div>
         <div
           className={!isActive ? styles.active : styles.inActive}
-          onClick={handlerBtn}
+          onClick={() => handlerBtn(false)}
         >
           비슷한 컨텐츠
         </div>

@@ -17,22 +17,22 @@ const MovieCredits = ({ id, credits }) => {
           <MovieCasts casts={casts} />
           {casts.slice(0, castCnt).map(async (cast, idx) => {
             const { profile_path, name, character } = cast;
-            const {
-              base64,
-              img: { width, height },
-            } = await getBase64(`${IMG_URL}${profile_path}`);
+            let res = { width: 0, height: 0, base64: "" };
 
+            if (profile_path) {
+              res = await getBase64(`${IMG_URL}${profile_path}`);
+            }
             return (
               <div key={idx} className={styles.credit}>
                 {profile_path ? (
                   <Image
                     alt={name}
                     src={`${IMG_URL}${profile_path}`}
-                    width={width}
-                    height={height}
-                    sizes='200px'
-                    placeholder='blur'
-                    blurDataURL={base64}
+                    width={res["width"]}
+                    height={res["height"]}
+                    sizes="200px"
+                    placeholder="blur"
+                    blurDataURL={res["base64"]}
                   />
                 ) : (
                   <div className={styles.noImage}>no image</div>

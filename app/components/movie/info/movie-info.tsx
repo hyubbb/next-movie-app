@@ -5,10 +5,11 @@ import MovieCredits from "./movie-credits";
 import Image from "next/image";
 import getBase64 from "../../../utils/getBase64";
 
-export const getMovie = async ({ id, type }: { id: string; type: string }) => {
+import LikeButton from "../../likes/like-button";
+export const getMovie = async ({ id, type }: { id: number; type: string }) => {
   const response = await fetch(
     `${MOVIE_DETAIL_URL}/${type}/${id}?append_to_response=credits&language=ko`,
-    options
+    options,
   );
 
   return response.json();
@@ -29,11 +30,12 @@ export default async function MovieInfo({ id, type }) {
     genres,
     credits,
   } = movie;
-  const {
-    base64,
-    img: { width, height },
-  } = await getBase64(`${IMG_URL}${poster_path}`);
 
+  let res = { width: 0, height: 0, base64: "" };
+
+  if (poster_path) {
+    res = await getBase64(`${IMG_URL}${poster_path}`);
+  }
   return (
     <div className={styles.container}>
       <Image
@@ -41,15 +43,19 @@ export default async function MovieInfo({ id, type }) {
         src={`${IMG_URL}${poster_path}`}
         alt={title || name}
         priority={true}
-        width={width}
-        height={height}
-        sizes='500px'
-        placeholder='blur'
-        blurDataURL={base64}
+        sizes="500px"
+        width={res.width}
+        height={res.height}
+        placeholder="blur"
+        blurDataURL={res.base64}
       />
 
       <div className={styles.info}>
-        <h1 className={styles.title}>{title || name}</h1>
+        <div className={styles.titleBox}>
+          <h1 className={styles.title}>{title || name} </h1>
+          <LikeButton movieId={id} type={type} />
+        </div>
+
         <div className={styles.genres}>
           {genres.map((genre, idx) => {
             return (
@@ -62,7 +68,7 @@ export default async function MovieInfo({ id, type }) {
             );
           })}
         </div>
-        <div className={styles.infoCustom}>
+        <div className={styles.description}>
           {vote_average > 0 && (
             <>
               <h3>⭐️{vote_average.toFixed(1)}</h3>
@@ -80,7 +86,7 @@ export default async function MovieInfo({ id, type }) {
           </a>
         )}
 
-        <MovieCredits id={id} credits={credits} />
+        {<MovieCredits id={id} credits={credits} />}
       </div>
 
       <Image
@@ -89,7 +95,7 @@ export default async function MovieInfo({ id, type }) {
         alt={title}
         fill
         priority={false}
-        sizes='300px'
+        sizes="300px"
       />
     </div>
   );

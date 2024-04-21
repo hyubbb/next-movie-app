@@ -1,18 +1,19 @@
 import { getPlaiceholder } from "plaiceholder";
+import { metadata } from "../layout";
 
 const getBase64 = async (src: string) => {
   const buffer = await fetch(src).then(async (res) =>
-    Buffer.from(await res.arrayBuffer())
+    Buffer.from(await res.arrayBuffer()),
   );
 
   const {
     metadata: { height, width },
     base64,
   } = await getPlaiceholder(buffer, { size: 10 });
-
   return {
     base64,
-    img: { src, height, width },
+    height,
+    width,
   };
 };
 
