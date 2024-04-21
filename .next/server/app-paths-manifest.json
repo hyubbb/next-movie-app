@@ -1,4 +1,8 @@
 {
+  "/(movies)/movies/[id]/page": "app/(movies)/movies/[id]/page.js",
+  "/(like)/like/page": "app/(like)/like/page.js",
+  "/(tv)/tv/[id]/page": "app/(tv)/tv/[id]/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/(home)/page": "app/(home)/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/_not-found": "app/_not-found.js"
 }
