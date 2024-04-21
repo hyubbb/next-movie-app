@@ -1,7 +1,7 @@
 ## 설명
 
 - Next14, react, recoil, typescript를 사용하여 만든 영화 검색 사이트
-- 
+ 
 
 ## 내용
 
