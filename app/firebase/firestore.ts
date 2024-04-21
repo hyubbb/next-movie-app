@@ -35,7 +35,7 @@ export async function fetchLikesByUser(userId: string): Promise<ILike[]> {
 // 영화에 맞는 좋아요 불러오는 함수
 export async function fetchLikesByUserAndPost(
   userId: string,
-  movieId: number,
+  movieId: string,
 ): Promise<ILike[]> {
   const likesRef = collection(db, "movie"); // "movie" 컬렉션 참조
   const likesQuery = query(
@@ -64,9 +64,9 @@ export async function fetchLikesByUserAndPost(
 // 좋아요 토글 함수
 export async function toggleLike(
   userId: string,
-  movieId: number,
+  movieId: string,
   type: string,
-): Promise<ILike[]> {
+): Promise<ILike[] | string> {
   const likesRef = collection(db, "movie"); // "likes" 컬렉션 참조
   const q = query(
     likesRef,
@@ -78,11 +78,11 @@ export async function toggleLike(
     const querySnapshot = await getDocs(q);
     if (querySnapshot.empty) {
       // 좋아요 문서가 없으므로 추가
-      const docRefData = {
-        userId: userId as string,
-        movieId: movieId as number,
-        type: type as string,
-        likedAt: new Date() as Date,
+      const docRefData: ILike = {
+        userId: userId,
+        movieId: movieId,
+        type: type,
+        likedAt: new Date(),
       };
       const docRef = await addDoc(likesRef, docRefData);
       return [docRefData];

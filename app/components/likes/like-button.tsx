@@ -12,11 +12,11 @@ export default function LikeButton({
   movieId,
   type,
 }: {
-  movieId: number;
+  movieId: string;
   type: string;
 }) {
   const [userData, setUserData] = useRecoilState<User | null>(userState);
-  const [likeData, setLikeData] = useState<ILike[]>([]);
+  const [likeData, setLikeData] = useState<ILike[] | string>([]);
   const handleLike = async () => {
     if (userData) {
       const response = await toggleLike(userData.email, movieId, type);
