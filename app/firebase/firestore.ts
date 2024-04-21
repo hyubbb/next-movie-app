@@ -47,7 +47,6 @@ export async function fetchLikesByUserAndPost(
   try {
     const querySnapshot = await getDocs(likesQuery);
     if (querySnapshot.empty) {
-      console.log("No matching documents.");
       return [];
     }
     let results = [];
@@ -91,7 +90,6 @@ export async function toggleLike(
       querySnapshot.forEach(async (doc) => {
         await deleteDoc(doc.ref);
       });
-      console.log("Like removed");
       return [];
     }
   } catch (error) {

@@ -20,7 +20,6 @@ export default function LikeCard({
   type: string;
 }) {
   const [movies, setMovies] = useState([]);
-  console.log(type);
   useEffect(() => {
     const fetchMovies = async () => {
       const promises = data.map((like) =>

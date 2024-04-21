@@ -25,8 +25,9 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export const Navigation = () => {
-  const [isSearchOpen, setIsSearchOpen] = useRecoilState(isSearchOpenState);
+  const initialUserData = storage.get<User>("userData");
   const [userData, setUserData] = useRecoilState<User | null>(userState);
+  const [isSearchOpen, setIsSearchOpen] = useRecoilState(isSearchOpenState);
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
   const router = useRouter();
@@ -67,7 +68,6 @@ export const Navigation = () => {
         const errorMessage = error.message;
       });
   };
-
   return (
     <>
       <nav className={styles.nav}>
@@ -79,12 +79,10 @@ export const Navigation = () => {
             <button className={styles.search} onClick={openSearch}>
               {isSearchOpen ? <IoIosClose /> : <IoIosSearch />}
             </button>
-            {userData ? (
-              <>
-                <Link href={`/like`} className={styles.login}>
-                  <IoIosHeart />
-                </Link>
-              </>
+            {userData?.email ? (
+              <Link href={`/like`} className={styles.login}>
+                <IoIosHeart />
+              </Link>
             ) : (
               <button className={styles.search} onClick={handleAuth}>
                 <IoIosLogIn />

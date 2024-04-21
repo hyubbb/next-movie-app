@@ -1,13 +1,22 @@
+const isLocalStorageAvailable =
+  typeof window !== "undefined" && window.localStorage;
+
 const storage = {
   set: (key: string, value: any) => {
-    localStorage.setItem(key, JSON.stringify(value));
+    // if (isLocalStorageAvailable) {
+    localStorage?.setItem(key, JSON.stringify(value));
+    // }
   },
   get: <T>(key: string, defaultValue?: T): T => {
+    // if (isLocalStorageAvailable) {
     const value = localStorage?.getItem(key);
     return (value ? JSON.parse(value) : defaultValue) as T;
+    // }
   },
   remove: (key: string) => {
-    localStorage.removeItem(key);
+    // if (isLocalStorageAvailable) {
+    localStorage?.removeItem(key);
+    // }
   },
 };
 
