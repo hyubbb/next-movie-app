@@ -6,7 +6,7 @@ import Image from "next/image";
 import getBase64 from "../../../utils/getBase64";
 
 import LikeButton from "../../likes/like-button";
-export const getMovie = async ({ id, type }: { id: number; type: string }) => {
+export const getMovie = async ({ id, type }: { id: string; type: string }) => {
   const response = await fetch(
     `${MOVIE_DETAIL_URL}/${type}/${id}?append_to_response=credits&language=ko`,
     options,
