@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import { API_URL, options } from "../../constants";
 import styles from "../../styles/movie-videos.module.scss";
+
 const getVideos = async (id: string, type: string) => {
-  // await new Promise((resolve) => setTimeout(resolve, 1000));
   const whatType = type === "movie" ? "movie" : "tv";
   const response = await fetch(
     `${API_URL}/${whatType}/${id}/videos?language=ko`,

@@ -34,11 +34,11 @@ export default function LikeButton({
       }
     };
     handleLike();
-  }, []);
+  }, [userData]);
   return (
     <div>
       <div className={styles.like} onClick={handleLike}>
-        {likeData.length ? <IoIosHeart /> : <IoIosHeartEmpty />}
+        {likeData.length ? <IoIosHeart color="red" /> : <IoIosHeartEmpty />}
       </div>
     </div>
   );

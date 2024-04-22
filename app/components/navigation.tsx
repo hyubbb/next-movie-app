@@ -5,7 +5,6 @@ import {
   IoIosClose,
   IoIosLogIn,
   IoIosHeart,
-  IoIosHelpCircleOutline,
 } from "react-icons/io";
 import styles from "../styles/navigation.module.scss";
 import { FONT_SANS } from "../utils/fonts";
@@ -18,43 +17,16 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   onAuthStateChanged,
-  signOut,
   User,
 } from "firebase/auth";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import storage from "../utils/storage";
-import cookie from "cookie";
-
-export const getServerSideProps = async (context) => {
-  const { req } = context;
-  const userData = cookie.parse(req)["userData"];
-
-  return {
-    props: {
-      initialUserData: userData ? JSON.parse(userData) : null,
-    },
-  };
-};
 
 export const Navigation = () => {
-  // const localStorageUser = storage.get<User>("userData");
   const [userData, setUserData] = useRecoilState<User | undefined>(userState);
   const [isSearchOpen, setIsSearchOpen] = useRecoilState(isSearchOpenState);
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
-  const router = useRouter();
-
-  useEffect(() => {
-    const loadUserData = () => {
-      const localStorageUser = storage.get<User>("userData");
-      if (localStorageUser) {
-        setUserData(localStorageUser["userState"]);
-        console.log(localStorageUser["userState"]);
-      }
-    };
-    loadUserData();
-  }, []);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {

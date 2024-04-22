@@ -36,6 +36,10 @@
 .like {
   display: flex;
   align-items: center;
+  transition: all 0.5s ease;
+  &:hover {
+    color: red;
+  }
 }
 
 .info {

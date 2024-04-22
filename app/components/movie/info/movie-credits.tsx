@@ -1,15 +1,14 @@
-import React, { Suspense, useState } from "react";
+import React from "react";
 import { IMG_URL } from "../../../constants";
 import styles from "../../../styles/movie-credits.module.scss";
 import Image from "next/image";
 import MovieCasts from "./movie-casts-more";
-import Spinner from "../../commons/Spinner";
 import getBase64 from "../../../utils/getBase64";
+import { ICast, ICredit } from "../../../types/type";
 
-const MovieCredits = ({ id, credits }) => {
+const MovieCredits = ({ credits }: { credits: ICredit }) => {
   const { cast: casts } = credits;
   const castCnt = casts.length > 6 ? 6 : casts.length;
-
   return (
     <>
       {casts.length > 0 && (
@@ -28,10 +27,10 @@ const MovieCredits = ({ id, credits }) => {
                   <Image
                     alt={name}
                     src={`${IMG_URL}${profile_path}`}
-                    width={res["width"]}
-                    height={res["height"]}
                     sizes="200px"
                     placeholder="blur"
+                    width={res["width"]}
+                    height={res["height"]}
                     blurDataURL={res["base64"]}
                   />
                 ) : (

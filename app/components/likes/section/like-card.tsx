@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { MOVIE_DETAIL_URL, options } from "../../../constants";
 import Movie from "../../movie/movie";
 import styles from "../../../styles/like-section.module.scss";
-import { ILike, IMovie } from "../../../types/type";
+import { ILike } from "../../../types/type";
 const getMovie = async ({ id, type }: { id: string; type: string }) => {
   const response = await fetch(
     `${MOVIE_DETAIL_URL}/${type}/${id}?append_to_response=credits&language=ko`,

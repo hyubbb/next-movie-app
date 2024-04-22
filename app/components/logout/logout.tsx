@@ -1,6 +1,5 @@
 "use client";
 import { User, getAuth, signOut } from "firebase/auth";
-import styles from "../../styles/like-section.module.scss";
 import storage from "../../utils/storage";
 import { userState } from "../../state/atom";
 import { useRecoilState } from "recoil";

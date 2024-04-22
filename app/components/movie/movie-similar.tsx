@@ -1,12 +1,14 @@
+"use client";
 import Link from "next/link";
-import { API_URL, IMG_URL, MOVIE_SIMILAR, options } from "../../constants";
+import { API_URL, IMG_URL, options } from "../../constants";
 import styles from "../../styles/movie-similar.module.scss";
 import Image from "next/image";
+import { IMovie } from "../../types/type";
 
 const getMovies = async ({ id, type }: { id: string; type: string }) => {
   const response = await fetch(
     `${API_URL}/${type}/${id}/similar?language=ko&region=KR`,
-    options
+    options,
   );
   const { results } = await response.json();
   return results;
@@ -20,13 +22,14 @@ export default async function MovieSimilar({
   type: string;
 }) {
   const newType = type === "movie" ? "movies" : "tv";
-  const movies = await getMovies({ id, type });
+  const movies: IMovie[] = await getMovies({ id, type });
 
   return (
     <>
       <div className={styles.container}>
-        {movies.map((movie) => {
+        {movies.map((movie: IMovie) => {
           const { poster_path, title, name, id } = movie;
+
           return (
             <Link key={id} prefetch href={`/${newType}/${id}`}>
               <div className={styles.card}>
@@ -35,7 +38,7 @@ export default async function MovieSimilar({
                     src={`${IMG_URL}${poster_path}`}
                     alt={title || name}
                     fill
-                    sizes='300px'
+                    sizes="300px"
                   />
                 ) : (
                   <div className={styles.noImage}>no image</div>

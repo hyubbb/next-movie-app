@@ -86,7 +86,7 @@ export default async function MovieInfo({ id, type }) {
           </a>
         )}
 
-        {<MovieCredits id={id} credits={credits} />}
+        {<MovieCredits credits={credits} />}
       </div>
 
       <Image

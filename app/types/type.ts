@@ -17,3 +17,13 @@ export interface IFilteredLike {
   movie: ILike;
   tv: ILike;
 }
+
+export interface ICast {
+  profile_path: string;
+  name: string;
+  character: string;
+}
+
+export interface ICredit {
+  cast: ICast[];
+}

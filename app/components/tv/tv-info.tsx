@@ -89,7 +89,7 @@ export default async function TvInfo({ id, type }) {
         )}
 
         <Suspense fallback={<Spinner />}>
-          <MovieCredits id={id} credits={credits} />
+          <MovieCredits credits={credits} />
         </Suspense>
       </div>
 
