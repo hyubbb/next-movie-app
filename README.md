@@ -1,3 +1,6 @@
+![0422-ezgif com-optimize](https://github.com/hyubbb/nextjs-learn-app/assets/32926006/a1c86bd0-8b6d-4178-a415-2e986a4de620)
+
+
 ## 설명
 
 - Next14, react, recoil, typescript, scss, firebase를 사용하여 만든 영화 검색 사이트
