@@ -22,8 +22,8 @@ export interface ILike {
 }
 
 export interface IFilteredLike {
-  movie: ILike;
-  tv: ILike;
+  movie: ILike[];
+  tv: ILike[];
 }
 
 export interface ICast {

@@ -5,9 +5,13 @@ import { FONT_SANS } from "../../utils/fonts";
 import Search from "../search/search";
 import Menu from "./menu/menu";
 import { cookies } from "next/headers";
+import { verifyIdToken } from "../../firebase/firebaseSdk";
+import nookies from "nookies";
 
-export const Navigation = () => {
-  const session = cookies().get("userData")?.value || null;
+export const Navigation = async () => {
+  const token = cookies().get("token")?.value || null;
+  const decodedToken = await verifyIdToken(token);
+  const session = token && decodedToken?.email;
   return (
     <>
       <nav className={styles.nav}>

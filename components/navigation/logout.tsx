@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { userState } from "../../state/atom";
 import { signOutWithGoogle } from "../../firebase/auth";
 import { removeSession } from "../../actions/auth-actions";
-
+import nookies from "nookies";
 export default function Logout() {
   const router = useRouter();
   const [userData, setUserData] = useRecoilState<User | null>(userState);
@@ -14,13 +14,14 @@ export default function Logout() {
     const response = await signOutWithGoogle();
     if (response) {
       await removeSession();
+      nookies.destroy(null, "token");
       setUserData(null);
       router.push(`/`);
     }
   };
   return (
-    <div className={styles.logout} onClick={handleLogOut}>
-      LOGOUT
+    <div className={`${styles.logout}`} onClick={handleLogOut}>
+      <span>LOGOUT</span>
     </div>
   );
 }

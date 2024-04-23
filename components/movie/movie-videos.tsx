@@ -34,7 +34,6 @@ const MovieVideos = ({ id, type }: { id: string; type: string }) => {
     <>
       <div className={styles.container}>
         {videos.map((video, idx) => {
-          console.log(video);
           if (idx < 5) {
             return (
               <iframe

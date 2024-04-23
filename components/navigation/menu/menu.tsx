@@ -8,6 +8,7 @@ import { onAuthStateChanged, signInWithGoogle } from "../../../firebase/auth";
 import { createSession } from "../../../actions/auth-actions";
 import styles from "../navigation.module.scss";
 import { useEffect } from "react";
+import nookies from "nookies";
 
 export default function Menu({ session }) {
   const [userData, setUserData] = useRecoilState<User | null>(userState);
@@ -24,21 +25,21 @@ export default function Menu({ session }) {
     return () => unsubscribe();
   }, []);
   const handleAuth = async () => {
-    const userId = await signInWithGoogle();
-    if (userId) {
-      await createSession(userId);
+    const res = await signInWithGoogle();
+    if (res) {
+      await createSession(res.token);
     }
   };
   return (
     <>
-      {userData || session ? (
-        <Link href={`/like`} className={styles.login}>
-          <IoIosHeart />
-        </Link>
-      ) : (
+      {!session ? (
         <button className={styles.search} onClick={handleAuth}>
           <IoIosLogIn />
         </button>
+      ) : (
+        <Link href={`/like`} className={styles.login}>
+          <IoIosHeart />
+        </Link>
       )}
     </>
   );

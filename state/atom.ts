@@ -14,3 +14,8 @@ export const userState = atom<User | null>({
   key: "userState",
   default: null,
 });
+
+export const likeTypeState = atom({
+  key: "likeTypeState",
+  default: "movie",
+});

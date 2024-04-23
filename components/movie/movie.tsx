@@ -1,9 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import styles from "../../styles/movie.module.scss";
 import { useRouter } from "next/navigation";
-
 import { useSetRecoilState } from "recoil";
 import { isSearchOpenState, isSearchTerm } from "../../state/atom";
 import { IMovie } from "../../types/type";
