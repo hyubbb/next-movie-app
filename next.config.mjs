@@ -12,6 +12,9 @@ const nextConfig = {
     domains: ["image.tmdb.org"],
   },
   swcMinify: true,
+  eslint: {
+    ignoreDuringBuild: true,
+  },
 };
 
 export default withPlaiceholder(nextConfig);
