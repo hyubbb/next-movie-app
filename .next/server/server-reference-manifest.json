@@ -1,5 +1,38 @@
 {
-  "node": {},
+  "node": {
+    "c858cd6222ea88abaf2f3f8bead74115918c3d75": {
+      "workers": {
+        "app/(like)/like/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fhyublee%2FDesktop%2Fhyub%2Fdev%2Flearn-nextjs14%2Factions%2Fauth-actions.ts%22%2C%5B%22removeSession%22%2C%22createSession%22%5D%5D%5D&__client_imported__=true!",
+        "app/(home)/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fhyublee%2FDesktop%2Fhyub%2Fdev%2Flearn-nextjs14%2Factions%2Fauth-actions.ts%22%2C%5B%22removeSession%22%2C%22createSession%22%5D%5D%5D&__client_imported__=true!",
+        "app/not-found": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fhyublee%2FDesktop%2Fhyub%2Fdev%2Flearn-nextjs14%2Factions%2Fauth-actions.ts%22%2C%5B%22removeSession%22%2C%22createSession%22%5D%5D%5D&__client_imported__=true!",
+        "app/(movies)/movies/[id]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fhyublee%2FDesktop%2Fhyub%2Fdev%2Flearn-nextjs14%2Factions%2Fauth-actions.ts%22%2C%5B%22removeSession%22%2C%22createSession%22%5D%5D%5D&__client_imported__=true!",
+        "app/(tv)/tv/[id]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fhyublee%2FDesktop%2Fhyub%2Fdev%2Flearn-nextjs14%2Factions%2Fauth-actions.ts%22%2C%5B%22removeSession%22%2C%22createSession%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/(like)/like/page": "action-browser",
+        "app/(home)/page": "action-browser",
+        "app/not-found": "action-browser",
+        "app/(movies)/movies/[id]/page": "action-browser",
+        "app/(tv)/tv/[id]/page": "action-browser"
+      }
+    },
+    "f2a61c47610c57356d2b873c7f747090eaa7b44f": {
+      "workers": {
+        "app/(like)/like/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fhyublee%2FDesktop%2Fhyub%2Fdev%2Flearn-nextjs14%2Factions%2Fauth-actions.ts%22%2C%5B%22removeSession%22%2C%22createSession%22%5D%5D%5D&__client_imported__=true!",
+        "app/(home)/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fhyublee%2FDesktop%2Fhyub%2Fdev%2Flearn-nextjs14%2Factions%2Fauth-actions.ts%22%2C%5B%22removeSession%22%2C%22createSession%22%5D%5D%5D&__client_imported__=true!",
+        "app/not-found": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fhyublee%2FDesktop%2Fhyub%2Fdev%2Flearn-nextjs14%2Factions%2Fauth-actions.ts%22%2C%5B%22removeSession%22%2C%22createSession%22%5D%5D%5D&__client_imported__=true!",
+        "app/(movies)/movies/[id]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fhyublee%2FDesktop%2Fhyub%2Fdev%2Flearn-nextjs14%2Factions%2Fauth-actions.ts%22%2C%5B%22removeSession%22%2C%22createSession%22%5D%5D%5D&__client_imported__=true!",
+        "app/(tv)/tv/[id]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fhyublee%2FDesktop%2Fhyub%2Fdev%2Flearn-nextjs14%2Factions%2Fauth-actions.ts%22%2C%5B%22removeSession%22%2C%22createSession%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/(like)/like/page": "action-browser",
+        "app/(home)/page": "action-browser",
+        "app/not-found": "action-browser",
+        "app/(movies)/movies/[id]/page": "action-browser",
+        "app/(tv)/tv/[id]/page": "action-browser"
+      }
+    }
+  },
   "edge": {},
-  "encryptionKey": "JYuL1OOufMezUFCwWLgO7K+XiOshrPoC50fvrIjkBIg="
+  "encryptionKey": "cB66CbXJykslGfTPz5rwrV/wpbK8DYkda/m8lfBLZJw="
 }

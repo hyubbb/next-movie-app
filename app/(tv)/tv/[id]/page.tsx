@@ -1,8 +1,8 @@
 import { Suspense } from "react";
-import MovieRelations from "../../../components/movie/movie-relation";
-import styles from "../../../styles/movie-detail.module.scss";
-import TvInfo, { getMovie } from "../../../components/tv/tv-info";
-import Spinner from "../../../components/commons/Spinner";
+import MovieRelations from "../../../../components/movie/movie-relation";
+import styles from "../../../../styles/movie.module.scss";
+import TvInfo, { getMovie } from "../../../../components/tv/tv-info";
+import Spinner from "../../../../components/commons/Spinner";
 interface IParams {
   params: { id: string };
 }

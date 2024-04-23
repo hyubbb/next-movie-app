@@ -1,8 +1,10 @@
 import { Suspense } from "react";
-import MovieInfo, { getMovie } from "../../../components/movie/info/movie-info";
-import MovieRelations from "../../../components/movie/movie-relation";
-import styles from "../../../styles/movie-detail.module.scss";
-import Spinner from "../../../components/commons/Spinner";
+import MovieInfo, {
+  getMovie,
+} from "../../../../components/movie/info/movie-info";
+import MovieRelations from "../../../../components/movie/movie-relation";
+import styles from "../../../../styles/movie.module.scss";
+import Spinner from "../../../../components/commons/Spinner";
 interface IParams {
   params: { id: string };
 }
@@ -14,7 +16,7 @@ export async function generateMetadata({ params: { id } }: IParams) {
   };
 }
 
-const movieDetailPage = async ({ params: { id } }: IParams) => {
+const Page = async ({ params: { id } }: IParams) => {
   return (
     <div className={styles.container}>
       <Suspense fallback={<Spinner />}>
@@ -27,4 +29,4 @@ const movieDetailPage = async ({ params: { id } }: IParams) => {
   );
 };
 
-export default movieDetailPage;
+export default Page;

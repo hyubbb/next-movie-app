@@ -1,0 +1,28 @@
+@import "../../styles/_mixin.scss";
+.container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  img {
+    width: 130px;
+  }
+}
+
+.card {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  img {
+    width: 100%;
+    height: fit-content !important;
+    position: relative !important;
+  }
+}
+.noImage {
+  @include flexBox(center, center);
+  width: 100%;
+  aspect-ratio: 2/3;
+  border: 1px solid white;
+}

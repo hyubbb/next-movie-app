@@ -1,0 +1,9 @@
+@import "../../styles/mixin";
+
+.logout {
+  width: 100%;
+  @include flexBox(center, center);
+  background-color: #212529;
+  padding: 10px;
+  cursor: pointer;
+}

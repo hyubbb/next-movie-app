@@ -1,13 +1,11 @@
 import { Metadata } from "next";
-// import { Navigation } from "./components/navigation";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
-import "./styles/global.css";
+import "../styles/global.css";
 import RecoilRootWrapper from "./RecoilWrapper";
-import { Navigation } from "./components/navigation";
+import { Navigation } from "../components/navigation/navigation";
 
 export const metadata: Metadata = {
   title: {

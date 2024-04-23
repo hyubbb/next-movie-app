@@ -1,5 +1,21 @@
 {
   "pages": {
+    "/(like)/like/error": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(like)/like/error.js"
+    ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
     "/(home)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -12,27 +28,33 @@
       "static/css/app/(home)/loading.css",
       "static/chunks/app/(home)/loading.js"
     ],
-    "/layout": [
+    "/(like)/like/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/css/app/(like)/like/page.css",
+      "static/chunks/app/(like)/like/page.js"
     ],
-    "/not-found": [
+    "/(movies)/movies/[id]/error": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/chunks/app/(movies)/movies/[id]/error.js"
+    ],
+    "/(movies)/movies/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(movies)/movies/[id]/page.css",
+      "static/chunks/app/(movies)/movies/[id]/page.js"
+    ],
+    "/(tv)/tv/[id]/error": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(tv)/tv/[id]/error.js"
     ],
     "/(tv)/tv/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/(tv)/tv/[id]/page.css",
       "static/chunks/app/(tv)/tv/[id]/page.js"
-    ],
-    "/(tv)/tv/[id]/error": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(tv)/tv/[id]/error.js"
     ]
   }
 }
