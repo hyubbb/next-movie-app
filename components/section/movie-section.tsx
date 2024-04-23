@@ -27,7 +27,7 @@ const getMovies = async (type: string) => {
 
 export default function MovieSection({ type }) {
   const [movies, setMovies] = useState<IMovie[]>([]);
-  const toUpperType = toTitleCase(type);
+  // const toUpperType = toTitleCase(type);
   SwiperCores.use([Navigation, Autoplay, Pagination]);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function MovieSection({ type }) {
 
   return (
     <section className={`${styles.section} swiper-container`}>
-      <h1>{toUpperType}</h1>
+      <h1>{type}</h1>
       <Swiper
         navigation
         modules={[Navigation]}

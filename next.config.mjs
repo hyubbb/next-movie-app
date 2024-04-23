@@ -7,9 +7,6 @@
 import withPlaiceholder from "@plaiceholder/next";
 
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   images: {
     formats: ["image/avif", "image/webp"],
     domains: ["image.tmdb.org"],
