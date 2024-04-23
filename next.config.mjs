@@ -1,9 +1,3 @@
-// module.exports = {
-//   images: {
-//     domains: ["image.tmdb.org"],
-//   },
-// };
-/** @type {import('next').NextConfig} */
 import withPlaiceholder from "@plaiceholder/next";
 
 const nextConfig = {

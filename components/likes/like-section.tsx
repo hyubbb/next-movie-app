@@ -19,11 +19,7 @@ const fetchFunc = async (session: string | undefined) => {
   return {};
 };
 
-export default async function LikeSection({
-  session,
-}: {
-  session: string | undefined;
-}) {
+export default async function LikeSection({ session }) {
   const data = await fetchFunc(session);
 
   return (

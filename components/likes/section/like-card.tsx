@@ -3,7 +3,7 @@ import { Suspense, useEffect, useState } from "react";
 import { MOVIE_DETAIL_URL, options } from "../../../app/constants";
 import Movie from "../../movie/movie";
 import styles from "../like-section.module.scss";
-import { IFilteredLike, IMovie } from "../../../types/type";
+import { IMovie } from "../../../types/type";
 import Spinner from "../../commons/Spinner";
 import { useRecoilState } from "recoil";
 import { likeTypeState } from "../../../state/atom";
@@ -56,10 +56,4 @@ export default function LikeCard({ filteredData: data }) {
       )}
     </>
   );
-
-  // <div className={styles.movies}>
-  //   {movies?.map((movie) => {
-  //     return <Movie key={movie.id} movie={movie} type={type} />;
-  //   })}
-  // </div>
 }
