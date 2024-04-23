@@ -7,7 +7,7 @@ const storage = {
       localStorage?.setItem(key, JSON.stringify(value));
     }
   },
-  get: <T>(key: string, defaultValue?: T): T => {
+  get: <T>(key: string, defaultValue?: T) => {
     if (isLocalStorageAvailable) {
       const value = localStorage?.getItem(key);
       return (value ? JSON.parse(value) : defaultValue) as T;

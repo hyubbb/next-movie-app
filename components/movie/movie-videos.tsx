@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { API_URL, options } from "../../app/constants";
 import styles from "./movie-videos.module.scss";
+import { IVideo } from "../../types/type";
 
 const getVideos = async (id: string, type: string) => {
   const whatType = type === "movie" ? "movie" : "tv";
@@ -15,7 +16,7 @@ const getVideos = async (id: string, type: string) => {
 };
 
 const MovieVideos = ({ id, type }: { id: string; type: string }) => {
-  const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState<IVideo[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +34,7 @@ const MovieVideos = ({ id, type }: { id: string; type: string }) => {
     <>
       <div className={styles.container}>
         {videos.map((video, idx) => {
+          console.log(video);
           if (idx < 5) {
             return (
               <iframe
@@ -45,7 +47,6 @@ const MovieVideos = ({ id, type }: { id: string; type: string }) => {
             );
           }
         })}
-        {/* {videos.length > 5 ? <div>더 보기</div> : ""} */}
       </div>
     </>
   );

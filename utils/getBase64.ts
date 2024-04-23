@@ -1,5 +1,4 @@
 import { getPlaiceholder } from "plaiceholder";
-import { metadata } from "../pages/layout";
 
 const getBase64 = async (src: string) => {
   const buffer = await fetch(src).then(async (res) =>

@@ -6,6 +6,7 @@ import styles from "./upcoming.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { IMovie } from "../../types/type";
 
 const getMovies = async () => {
   try {
@@ -21,7 +22,7 @@ const getMovies = async () => {
 };
 
 export default function Upcoming() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState<IMovie[]>([]);
   useEffect(() => {
     const fetchMovie = async () => {
       const data = await getMovies();
@@ -66,7 +67,7 @@ export default function Upcoming() {
         }}
       >
         {newMovie.map((movie) => {
-          const { backdrop_path, overview, title, release_date, id } = movie;
+          const { backdrop_path, title, release_date, id } = movie;
 
           return (
             <SwiperSlide key={movie.id}>
@@ -81,7 +82,6 @@ export default function Upcoming() {
                 <div className={styles.desc}>
                   <div className={styles.title}>{title}</div>
                   <div className={styles.date}>개봉일 : {release_date}</div>
-                  {/* <div className={styles.overview}>{overview}</div> */}
                 </div>
               </Link>
             </SwiperSlide>

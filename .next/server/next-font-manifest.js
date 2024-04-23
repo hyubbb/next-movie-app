@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/hyublee/Desktop/hyub/dev/learn-nextjs14/app/layout\":[\"static/media/d8f8e544930f1a55-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/Users/hyublee/Desktop/hyub/dev/next-movie-app/app/layout":["static/media/d8f8e544930f1a55-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';

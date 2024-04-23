@@ -21,9 +21,10 @@ export async function fetchLikesByUser(userId: string): Promise<ILike[]> {
       console.log("No matching documents.");
       return [];
     }
-    let results = [];
+    let results: ILike[] = [];
     querySnapshot.forEach((doc) => {
-      results.push(doc.data());
+      const likeData = doc.data() as ILike;
+      results.push(likeData);
     });
     return results;
   } catch (error) {
@@ -49,9 +50,10 @@ export async function fetchLikesByUserAndPost(
     if (querySnapshot.empty) {
       return [];
     }
-    let results = [];
+    let results: ILike[] = [];
     querySnapshot.forEach((doc) => {
-      results.push(doc.data());
+      const likeData = doc.data() as ILike;
+      results.push(likeData);
     });
     return results;
   } catch (error) {
