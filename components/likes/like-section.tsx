@@ -36,7 +36,6 @@ export default function LikeSection({ session }) {
     fetchFunc();
   }, [userData]);
 
-  // 로그아웃시 메인 페이지로 리디렉트
   useEffect(() => {
     if (!userData && !session) {
       alert("로그인을 해야 이용할 수 있는 페이지 입니다.");
