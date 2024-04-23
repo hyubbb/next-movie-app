@@ -10,9 +10,8 @@ import {
 import { ILike } from "../types/type";
 
 // 좋아요 다 불러오는 함수
-
 export async function fetchLikesByUser(userId: string): Promise<ILike[]> {
-  const likesRef = collection(db, "movie"); // "movie" 컬렉션 참조
+  const likesRef = collection(db, "movie");
   const likesQuery = query(likesRef, where("userId", "==", userId));
 
   try {
@@ -41,8 +40,8 @@ export async function fetchLikesByUserAndPost(
   const likesRef = collection(db, "movie"); // "movie" 컬렉션 참조
   const likesQuery = query(
     likesRef,
-    where("userId", "==", userId), // "uId" 필드가 특정 이메일과 동일
-    where("movieId", "==", movieId) // "mId" 필드가 특정 영화 ID와 동일
+    where("userId", "==", userId),
+    where("movieId", "==", movieId)
   );
 
   try {
@@ -68,7 +67,7 @@ export async function toggleLike(
   movieId: string,
   type: string
 ): Promise<ILike[] | string> {
-  const likesRef = collection(db, "movie"); // "likes" 컬렉션 참조
+  const likesRef = collection(db, "movie");
   const q = query(
     likesRef,
     where("userId", "==", userId),

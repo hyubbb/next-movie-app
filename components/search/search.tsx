@@ -7,7 +7,7 @@ import { options } from "../../app/constants";
 import MovieCard from "./movie-card";
 import Genre from "./genre";
 import useOutsideClick from "../../hooks/useOutsideClick";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { isSearchOpenState } from "../../state/atom";
 import Spinner from "../commons/Spinner";
 import { IoIosClose, IoIosSearch } from "react-icons/io";
