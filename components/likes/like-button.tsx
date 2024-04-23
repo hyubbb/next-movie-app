@@ -5,7 +5,7 @@ import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { fetchLikesByUserAndPost, toggleLike } from "../../firebase/firestore";
 import { User } from "firebase/auth";
 import { ILike } from "../../types/type";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { userState } from "../../state/atom";
 
 export default function LikeButton({
@@ -15,7 +15,7 @@ export default function LikeButton({
   movieId: string;
   type: string;
 }) {
-  const [userData, setUserData] = useRecoilState<User | null>(userState);
+  const userData = useRecoilValue<User | null>(userState);
   const [likeData, setLikeData] = useState<ILike[] | string>([]);
   const handleLike = async () => {
     if (userData) {
