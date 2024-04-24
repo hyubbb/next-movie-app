@@ -4,14 +4,10 @@ import styles from "./navigation.module.scss";
 import { FONT_SANS } from "../../utils/fonts";
 import Search from "../search/search";
 import Menu from "./menu/menu";
-import { cookies } from "next/headers";
-import { verifyIdToken } from "../../firebase/firebaseSdk";
-import nookies from "nookies";
+import { fetchSession } from "../../actions/auth-actions";
 
 export const Navigation = async () => {
-  const token = cookies().get("token")?.value || null;
-  const decodedToken = await verifyIdToken(token);
-  const session = token && decodedToken?.email;
+  const session = await fetchSession();
   return (
     <>
       <nav className={styles.nav}>

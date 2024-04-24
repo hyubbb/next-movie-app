@@ -1,12 +1,11 @@
 "use client";
-import { Suspense, useEffect, useState } from "react";
-import { MOVIE_DETAIL_URL, options } from "../../../app/constants";
-import Movie from "../../movie/movie";
-import styles from "../like-section.module.scss";
-import { IMovie } from "../../../types/type";
-import Spinner from "../../commons/Spinner";
-import { useRecoilState } from "recoil";
-import { likeTypeState } from "../../../state/atom";
+import { useEffect, useState } from "react";
+import { MOVIE_DETAIL_URL, options } from "../../app/constants";
+import Movie from "../movie/movie";
+import styles from "./like-section.module.scss";
+import { IMovie } from "../../types/type";
+import { useRecoilValue } from "recoil";
+import { likeTypeState } from "../../state/atom";
 const getMovie = async ({ id, type }: { id: string; type: string }) => {
   const response = await fetch(
     `${MOVIE_DETAIL_URL}/${type}/${id}?language=ko`,
@@ -16,9 +15,8 @@ const getMovie = async ({ id, type }: { id: string; type: string }) => {
   return response.json();
 };
 export default function LikeCard({ filteredData: data }) {
-  console.log(data);
   const [movies, setMovies] = useState<IMovie[]>([]);
-  const [likeTypeData, setLikeTypeData] = useRecoilState<string>(likeTypeState);
+  const likeTypeData = useRecoilValue<string>(likeTypeState);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -32,23 +30,19 @@ export default function LikeCard({ filteredData: data }) {
     fetchMovies();
   }, [likeTypeData]);
 
-  console.log(likeTypeData);
-
   return (
     <>
       {data[likeTypeData]?.length > 0 ? (
         <>
           <div className={styles.count}>좋아요한 컨텐츠</div>
           <div className={styles.contents}>
-            <Suspense fallback={<Spinner />}>
-              <div className={styles.movies}>
-                {movies.map((movie) => {
-                  return (
-                    <Movie key={movie.id} movie={movie} type={likeTypeData} />
-                  );
-                })}
-              </div>
-            </Suspense>
+            <div className={styles.movies}>
+              {movies.map((movie) => {
+                return (
+                  <Movie key={movie.id} movie={movie} type={likeTypeData} />
+                );
+              })}
+            </div>
           </div>
         </>
       ) : (

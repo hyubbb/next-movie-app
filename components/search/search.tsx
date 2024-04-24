@@ -8,20 +8,21 @@ import MovieCard from "./movie-card";
 import Genre from "./genre";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import { useRecoilState } from "recoil";
-import { isSearchOpenState } from "../../state/atom";
+import { isSearchOpenState, searchDataState } from "../../state/atom";
 import Spinner from "../commons/Spinner";
 import { IoIosClose, IoIosSearch } from "react-icons/io";
 
 export default function Search() {
   const { reset, setValue, debouncedValue, ...inputProps } = useInput("");
-  const [searchData, setSearchData] = useState([]);
   const searchRef = useRef(null);
   const [isSearchOpen, setIsSearchOpen] = useRecoilState(isSearchOpenState);
+  const [searchData, setSearchData] = useRecoilState(searchDataState);
 
   useOutsideClick(searchRef, () => {
     setIsSearchOpen((prev) => !prev);
     document.body.style.overflow = "unset";
     setValue("");
+    setSearchData([]);
   });
 
   const handlerSearch = async () => {

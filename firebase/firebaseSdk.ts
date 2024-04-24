@@ -19,7 +19,7 @@ if (!admin.apps.length) {
 }
 
 // ID 토큰 검증 함수
-const verifyIdToken = async (token) => {
+const verifyIdToken = async (token: string) => {
   if (!token) return;
   try {
     const decodedToken = await admin.auth().verifyIdToken(token);

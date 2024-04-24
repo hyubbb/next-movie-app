@@ -46,6 +46,9 @@
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   overflow: auto;
   padding: 3%;
+  @include mobile {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
 }
 
 .searchIcon {

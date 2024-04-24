@@ -19,3 +19,8 @@ export const likeTypeState = atom({
   key: "likeTypeState",
   default: "movie",
 });
+
+export const searchDataState = atom({
+  key: "searchDataState",
+  default: [],
+});

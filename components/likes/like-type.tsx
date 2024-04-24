@@ -2,8 +2,10 @@
 import styles from "./like-section.module.scss";
 import { useRecoilState } from "recoil";
 import { likeTypeState } from "../../state/atom";
+import { useState } from "react";
 
-export default function LikeType({ filteredData }) {
+export default function LikeType({ filteredData: data }) {
+  const [likeData, setLikeData] = useState(data);
   const [likeTypeData, setLikeTypeData] = useRecoilState<string>(likeTypeState);
   const handleType = (type: string) => {
     setLikeTypeData(type);
@@ -16,14 +18,14 @@ export default function LikeType({ filteredData }) {
         className={likeTypeData === "movie" ? styles.active : styles.inActive}
       >
         <span>MOVIE</span>
-        <span>{filteredData["movie"]?.length}</span>
+        <span>{likeData["movie"]?.length}</span>
       </div>
       <div
         onClick={() => handleType("tv")}
         className={likeTypeData === "tv" ? styles.active : styles.inActive}
       >
         <span>TV</span>
-        <span>{filteredData["tv"]?.length}</span>
+        <span>{likeData["tv"]?.length}</span>
       </div>
     </div>
   );

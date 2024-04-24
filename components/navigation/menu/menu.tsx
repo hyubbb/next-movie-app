@@ -8,13 +8,18 @@ import { onAuthStateChanged, signInWithGoogle } from "../../../firebase/auth";
 import { createSession } from "../../../actions/auth-actions";
 import styles from "../navigation.module.scss";
 import { useEffect } from "react";
-import nookies from "nookies";
 
 export default function Menu({ session }) {
   const [userData, setUserData] = useRecoilState<User | null>(userState);
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged((user) => {
+    const unsubscribe = onAuthStateChanged(async (user) => {
       if (user) {
+        try {
+          const idToken = await user.getIdToken(true);
+          createSession(idToken);
+        } catch (error) {
+          console.error("Error refreshing token:", error);
+        }
         const userCopy = JSON.parse(JSON.stringify(user));
         setUserData(userCopy);
       } else {
@@ -24,11 +29,9 @@ export default function Menu({ session }) {
 
     return () => unsubscribe();
   }, []);
+
   const handleAuth = async () => {
-    const res = await signInWithGoogle();
-    if (res) {
-      await createSession(res.token);
-    }
+    await signInWithGoogle();
   };
   return (
     <>
