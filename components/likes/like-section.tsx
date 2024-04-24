@@ -29,7 +29,7 @@ export default async function LikeSection({ session }) {
       <Logout />
       <LikeType filteredData={JSON.parse(JSON.stringify(data))} />
       <Suspense fallback={<Spinner />}>
-        <LikeCard filteredData={JSON.parse(JSON.stringify(data))} />
+        <LikeCard />
       </Suspense>
     </div>
   );

@@ -11,19 +11,16 @@ import { useRecoilState } from "recoil";
 import { isSearchOpenState, searchDataState } from "../../state/atom";
 import Spinner from "../commons/Spinner";
 import { IoIosClose, IoIosSearch } from "react-icons/io";
+import useCloseSearch from "../../hooks/closeSearch";
 
 export default function Search() {
   const { reset, setValue, debouncedValue, ...inputProps } = useInput("");
   const searchRef = useRef(null);
   const [isSearchOpen, setIsSearchOpen] = useRecoilState(isSearchOpenState);
   const [searchData, setSearchData] = useRecoilState(searchDataState);
+  const close = useCloseSearch();
 
-  useOutsideClick(searchRef, () => {
-    setIsSearchOpen((prev) => !prev);
-    document.body.style.overflow = "unset";
-    setValue("");
-    setSearchData([]);
-  });
+  useOutsideClick(searchRef, close);
 
   const handlerSearch = async () => {
     const searchData = await fetch(

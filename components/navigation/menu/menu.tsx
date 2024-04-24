@@ -15,8 +15,8 @@ export default function Menu({ session }) {
     const unsubscribe = onAuthStateChanged(async (user) => {
       if (user) {
         try {
-          const idToken = await user.getIdToken(true);
-          createSession(idToken);
+          const token = await user.getIdToken(true);
+          createSession(token);
         } catch (error) {
           console.error("Error refreshing token:", error);
         }

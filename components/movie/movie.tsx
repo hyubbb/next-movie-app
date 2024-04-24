@@ -1,47 +1,40 @@
-import Link from "next/link";
+"use client";
 import styles from "../../styles/movie.module.scss";
 import { useRouter } from "next/navigation";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import {
   isSearchOpenState,
   isSearchTerm,
+  likeTypeState,
   searchDataState,
 } from "../../state/atom";
 import { IMovie } from "../../types/type";
 import Image from "next/image";
 import { IMG_URL } from "../../app/constants";
+import useCloseSearch from "../../hooks/closeSearch";
 
-interface IMovieProps {
-  movie: IMovie;
-  type?: string;
-}
-
-const Movie = ({ movie, type }: IMovieProps) => {
+const Movie = ({ movie }: { movie: IMovie }) => {
   const { id, title, poster_path, name, media_type } = movie;
-  const setIsSearchOpen = useSetRecoilState(isSearchOpenState);
-  const setValue = useSetRecoilState(isSearchTerm);
-  const setSearchData = useSetRecoilState(searchDataState);
-  const whatType = (type || media_type) === "tv" ? "tv" : "movies";
+
+  const { type: likeType } = useRecoilValue(likeTypeState);
+  const whatType = media_type || likeType;
+  const typeCheck = whatType === "movie" ? "movies" : "tv";
   const router = useRouter();
+  const close = useCloseSearch();
   const onClick = () => {
-    setIsSearchOpen(false);
-    setValue("");
-    setSearchData([]);
-    document.body.style.overflow = "unset";
-    router.push(`/${whatType}/${id}`);
+    close();
+    router.push(`/${typeCheck}/${id}`);
   };
 
   return (
     <div className={styles.movie}>
-      <Link prefetch href={`/${whatType}/${id}`}>
-        <Image
-          src={`${IMG_URL}${poster_path}`}
-          alt={title || name}
-          fill
-          sizes='300px'
-          onClick={onClick}
-        />
-      </Link>
+      <Image
+        src={`${IMG_URL}${poster_path}`}
+        alt={title || name}
+        fill
+        sizes='300px'
+        onClick={onClick}
+      />
     </div>
   );
 };

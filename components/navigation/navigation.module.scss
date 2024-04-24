@@ -10,6 +10,7 @@
   background-color: black;
   box-sizing: border-box;
   z-index: 10;
+
   ul {
     color: #40c057;
     @include flexBox(space-between, center);

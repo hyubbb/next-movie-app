@@ -20,6 +20,10 @@ export interface ILike {
   type: string;
   likedAt: Date;
 }
+export interface likeTypeStateType {
+  type: string;
+  data: { tv: ILike[]; movie: ILike[] };
+}
 
 export interface IFilteredLike {
   movie: ILike[];

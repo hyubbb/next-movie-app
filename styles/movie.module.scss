@@ -17,20 +17,18 @@
   white-space: nowrap;
 
   width: 100%;
-  a {
-    position: relative;
-    img {
-      max-width: 100%;
-      min-height: 100%;
-      border-radius: 5px;
-      height: fit-content !important;
-      position: relative !important;
-      transition: all 0.3s ease-in-out;
-      opacity: 1;
-      &:hover {
-        opacity: 0.8;
-        transform: scale(1.1);
-      }
+
+  img {
+    max-width: 100%;
+    min-height: 100%;
+    border-radius: 5px;
+    height: fit-content !important;
+    position: relative !important;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    &:hover {
+      opacity: 0.8;
+      transform: scale(1.1);
     }
   }
   .movie {
