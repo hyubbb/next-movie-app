@@ -18,7 +18,7 @@ const Page = async () => {
   return (
     <div className={styles.container}>
       <Suspense fallback={<Spinner />}>
-        {/* <LikeSection session={session} /> */}
+        <LikeSection session={session} />
       </Suspense>
     </div>
   );
