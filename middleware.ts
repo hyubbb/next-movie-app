@@ -10,10 +10,4 @@ export default function middleware(request: NextRequest) {
     const absoluteURL = new URL("/", request.nextUrl.origin);
     return NextResponse.redirect(absoluteURL.toString());
   }
-
-  // // Redirect to home if session is set and user tries to access root
-  // if (session && request.nextUrl.pathname === "/") {
-  //   const absoluteURL = new URL("/", request.nextUrl.origin);
-  //   return NextResponse.redirect(absoluteURL.toString());
-  // }
 }
