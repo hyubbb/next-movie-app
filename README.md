@@ -1,20 +1,22 @@
 
 # 소개
----
+
 Nextjs, firebase를 사용하여 만든 영화 검색 사이트입니다.
 기능으로는 영화 검색과 좋아요기능이 있습니다.
 
 - 회고포스팅 : <a href="https://velog.io/@hyubbb/Next.jsfirebase-%EC%84%9C%EB%B2%84%EC%82%AC%EC%9D%B4%EB%93%9C%EC%97%90%EC%84%9C-cookie%EB%A1%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%A0%95%EB%B3%B4-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0">서버사이드에서 로그인정보 유지하기</a>
 - 배포페이지 : https://next-movie-app-rosy.vercel.app/
 
+<br>
 
 # 스택
----
+
 #### React, Next.js, Typescript, Firebase, Scss, Recoil
 
 
 ![0422-ezgif com-optimize](https://github.com/hyubbb/nextjs-learn-app/assets/32926006/a1c86bd0-8b6d-4178-a415-2e986a4de620)
 
+<br>
 
 ## 내용
 
