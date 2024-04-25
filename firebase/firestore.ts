@@ -84,7 +84,7 @@ export async function toggleLike(
         type: type,
         likedAt: new Date(),
       };
-      const docRef = await addDoc(likesRef, docRefData);
+      await addDoc(likesRef, docRefData);
       return [docRefData];
     } else {
       // 좋아요 문서가 있으므로 삭제

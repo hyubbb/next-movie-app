@@ -56,7 +56,7 @@ export default async function TvInfo({ id, type }) {
         </div>
 
         <div className={styles.genres}>
-          {genres.map((genre, idx) => {
+          {genres?.map((genre, idx) => {
             return (
               <React.Fragment key={idx}>
                 <div className={styles.text} key={genre.id}>
@@ -75,7 +75,7 @@ export default async function TvInfo({ id, type }) {
             </>
           )}
           <h3>{first_air_date}</h3>
-          {created_by[0] && (
+          {created_by && created_by[0] && (
             <>
               <span>|</span> <h3>감독 {created_by[0]?.original_name}</h3>
             </>

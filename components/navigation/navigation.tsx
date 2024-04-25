@@ -1,4 +1,3 @@
-// "use client";
 import Link from "next/link";
 import styles from "./navigation.module.scss";
 import { FONT_SANS } from "../../utils/fonts";

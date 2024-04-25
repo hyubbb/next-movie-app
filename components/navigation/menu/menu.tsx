@@ -8,7 +8,6 @@ import { onAuthStateChanged, signInWithGoogle } from "../../../firebase/auth";
 import { createSession } from "../../../actions/auth-actions";
 import styles from "../navigation.module.scss";
 import { useEffect } from "react";
-
 export default function Menu({ session }) {
   const [userData, setUserData] = useRecoilState<User | null>(userState);
   useEffect(() => {
@@ -33,6 +32,7 @@ export default function Menu({ session }) {
   const handleAuth = async () => {
     await signInWithGoogle();
   };
+
   return (
     <>
       {!session ? (

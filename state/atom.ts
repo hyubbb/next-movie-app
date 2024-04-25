@@ -1,6 +1,6 @@
 import { AtomEffect, DefaultValue, atom } from "recoil";
 import { User } from "firebase/auth";
-import { ILike, likeTypeStateType } from "../types/type";
+import { ILike, ILikeTypeStateType } from "../types/type";
 export const isSearchOpenState = atom({
   key: "isSearchOpenState",
   default: false,
@@ -16,7 +16,7 @@ export const userState = atom<User | null>({
   default: null,
 });
 
-export const likeTypeState = atom<likeTypeStateType>({
+export const likeTypeState = atom<ILikeTypeStateType>({
   key: "likeTypeState",
   default: { type: "movie", data: { movie: [], tv: [] } },
 });

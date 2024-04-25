@@ -52,6 +52,7 @@
   @include flexBox(initial, center);
   flex-direction: row;
   gap: 5px;
+  overflow: scroll;
   .text {
     padding: 5px;
     border-radius: 10px;

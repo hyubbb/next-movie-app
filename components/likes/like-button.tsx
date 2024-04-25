@@ -19,15 +19,19 @@ export default function LikeButton({
   const [likeData, setLikeData] = useState<ILike[] | string>([]);
   const handleLike = async () => {
     if (userData) {
-      const response = await toggleLike(userData.email!, movieId, type);
-      setLikeData(response);
+      try {
+        const response = await toggleLike(userData.email!, movieId, type);
+        setLikeData(response);
+      } catch (error) {
+        console.log(error);
+      }
     } else {
       alert("로그인이 필요합니다.");
     }
   };
 
   useEffect(() => {
-    const handleLike = async () => {
+    const fetchLike = async () => {
       if (userData) {
         const response = await fetchLikesByUserAndPost(
           userData.email!,
@@ -36,8 +40,8 @@ export default function LikeButton({
         setLikeData(response);
       }
     };
-    handleLike();
-  }, [userData]);
+    fetchLike();
+  }, []);
   return (
     <div>
       <div className={styles.like} onClick={handleLike}>

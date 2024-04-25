@@ -20,7 +20,7 @@ export interface ILike {
   type: string;
   likedAt: Date;
 }
-export interface likeTypeStateType {
+export interface ILikeTypeStateType {
   type: string;
   data: { tv: ILike[]; movie: ILike[] };
 }

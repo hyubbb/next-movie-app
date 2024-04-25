@@ -21,17 +21,6 @@
     display: grid;
     gap: 20px;
 
-    // &::before {
-    //   position: absolute;
-    //   content: "";
-    //   left: 0;
-    //   top: 0;
-    //   width: 100vw;
-    //   height: 100vh;
-    //   z-index: -1;
-    //   background: #3b3b3b5e;
-    // }
-
     label {
       width: 100%;
       border-bottom: 2px solid #fff;
@@ -55,7 +44,7 @@
 .movies {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   overflow: auto;
   padding: 3%;
   @include mobile {
