@@ -9,12 +9,16 @@ Nextjs, firebase를 사용하여 만든 영화 검색 사이트입니다.
 
 <br>
 
+
+![0422-ezgif com-optimize](https://github.com/hyubbb/nextjs-learn-app/assets/32926006/a1c86bd0-8b6d-4178-a415-2e986a4de620)
+
+
+<br>
+
 # 스택
 
 #### React, Next.js, Typescript, Firebase, Scss, Recoil
 
-
-![0422-ezgif com-optimize](https://github.com/hyubbb/nextjs-learn-app/assets/32926006/a1c86bd0-8b6d-4178-a415-2e986a4de620)
 
 <br>
 
