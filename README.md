@@ -26,7 +26,7 @@ React, Next.js, Tanstack-Query, Typescript, Recoil, Firebase, Scss,
 <br>
 
 # 기능
-- firebase를 이용한 로그인
+- `firebase` 를 이용한 로그인
 - 영화 좋아요 기능
   - 좋아요, 좋아요 취소 가능. 개별페이지에서 컨텐츠 확인가능
 - 반응형 UI
@@ -41,6 +41,6 @@ React, Next.js, Tanstack-Query, Typescript, Recoil, Firebase, Scss,
 - `Suspense`를 이용하여 비동기 데이터 처리시 Spinner indicator로 로딩상태 처리
 - `recoil` 은 검색창 온.오프에 필요한 변수와 로그인정보를 상태관리를 하기위해서 사용
 - `firebase` 를 이용하여 회원가입과 좋아요 기능을 사용하기 위해 DB사용
-  - 회원정보 검증을 위해 `firebase sdk`를 이용
+    - 회원정보 검증을 위해 `firebase sdk`를 이용
 - `react-query`로 데이터 관리, 서버로부터 비동기 데이터 (로그인, 좋아요)를 받아와서 캐싱처리
-  - Optimistic Update를 이용하여 좋아요버튼을 눌렀을떄 즉시 반응하여, 사용자 경험을 향상 시켰습니다.
+    - Optimistic Update를 이용하여 좋아요버튼을 눌렀을때 즉시 반응하여, 사용자 경험을 향상 시켰습니다.
