@@ -1,48 +1,26 @@
 "use client";
-import { User } from "firebase/auth";
 import Link from "next/link";
 import { IoIosHeart, IoIosLogIn } from "react-icons/io";
-import { useRecoilState } from "recoil";
-import { userState } from "../../../state/atom";
-import { onAuthStateChanged, signInWithGoogle } from "../../../firebase/auth";
-import { createSession } from "../../../actions/auth-actions";
+import { fetchSession } from "../../../actions/auth-actions";
 import styles from "../navigation.module.scss";
-import { useEffect } from "react";
+import { hydrate, useQuery, useQueryClient } from "@tanstack/react-query";
+import useSession from "../../../hooks/useSession";
 export default function Menu({ session }) {
-  const [userData, setUserData] = useRecoilState<User | null>(userState);
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(async (user) => {
-      if (user) {
-        try {
-          const token = await user.getIdToken(true);
-          createSession(token);
-        } catch (error) {
-          console.error("Error refreshing token:", error);
-        }
-        const userCopy = JSON.parse(JSON.stringify(user));
-        setUserData(userCopy);
-      } else {
-        setUserData(null);
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  const handleAuth = async () => {
-    await signInWithGoogle();
-  };
+  const queryClient = useQueryClient();
+  hydrate(queryClient, session);
+  const sessionData = queryClient.getQueryData(["loginSession"]) || null;
+  const { handleAuth } = useSession(sessionData);
 
   return (
     <>
-      {!session ? (
-        <button className={styles.search} onClick={handleAuth}>
-          <IoIosLogIn />
-        </button>
-      ) : (
+      {sessionData ? (
         <Link href={`/like`} className={styles.login}>
           <IoIosHeart />
         </Link>
+      ) : (
+        <button className={styles.search} onClick={handleAuth}>
+          <IoIosLogIn />
+        </button>
       )}
     </>
   );

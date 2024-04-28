@@ -12,6 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "@plaiceholder/next": "^3.0.0",
+    "@tanstack/react-query": "^5.32.0",
+    "@tanstack/react-query-devtools": "^5.32.0",
     "cookie": "^0.6.0",
     "firebase": "^10.11.0",
     "firebase-admin": "^12.1.0",

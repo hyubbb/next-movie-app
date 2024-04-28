@@ -3,30 +3,19 @@ import Movie from "../movie/movie";
 import styles from "./like-section.module.scss";
 import { useRecoilValue } from "recoil";
 import { likeTypeState } from "../../state/atom";
-import { useEffect, useState } from "react";
 import { IMovie } from "../../types/type";
-import { fetchMovieData } from "../../actions/auth-actions";
+
 const LikeCard = () => {
   const { data, type } = useRecoilValue(likeTypeState);
-  const [movies, setMovies] = useState<IMovie[]>([]);
-
-  useEffect(() => {
-    const fetchFunk = async () => {
-      const res = await fetchMovieData(data[type]);
-      setMovies(res);
-    };
-
-    fetchFunk();
-  }, [type, data]);
 
   return (
     <>
-      {movies.length ? (
+      {data[type]?.length ? (
         <>
           <div className={styles.count}>좋아요한 컨텐츠</div>
           <div className={styles.contents}>
             <div className={styles.movies}>
-              {movies.map((movie: IMovie) => {
+              {data[type].map((movie: IMovie) => {
                 return <Movie key={movie.id} movie={movie} />;
               })}
             </div>

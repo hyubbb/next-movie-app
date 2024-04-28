@@ -36,7 +36,7 @@ export async function fetchLikesByUser(userId: string): Promise<ILike[]> {
 export async function fetchLikesByUserAndPost(
   userId: string,
   movieId: string
-): Promise<ILike[]> {
+): Promise<ILike | boolean> {
   const likesRef = collection(db, "movie"); // "movie" 컬렉션 참조
   const likesQuery = query(
     likesRef,
@@ -47,14 +47,14 @@ export async function fetchLikesByUserAndPost(
   try {
     const querySnapshot = await getDocs(likesQuery);
     if (querySnapshot.empty) {
-      return [];
+      return false;
     }
-    let results: ILike[] = [];
-    querySnapshot.forEach((doc) => {
-      const likeData = doc.data() as ILike;
-      results.push(likeData);
-    });
-    return results;
+
+    // querySnapshot.forEach((doc) => {
+    //   const likeData = doc.data() as ILike;
+    //   results.push(likeData);
+    // })
+    return querySnapshot.docs[0].data() as ILike;
   } catch (error) {
     console.error("Error fetching documents: ", error);
     return [];

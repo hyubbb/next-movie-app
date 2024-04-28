@@ -2,33 +2,30 @@
 import styles from "./like-section.module.scss";
 import { useRecoilState } from "recoil";
 import { likeTypeState } from "../../state/atom";
-import { useEffect, useState } from "react";
-import { fetchByType, fetchLikeData } from "../../actions/auth-actions";
-import { stringify } from "querystring";
+import { useEffect } from "react";
+import { hydrate, useQueryClient } from "@tanstack/react-query";
+import { ILikeTypeStateType } from "../../types/type";
 
-export default function LikeType({ session }) {
-  const [likeData, _] = useState();
-  const [likeTypeData, setLikeTypeData] = useRecoilState(likeTypeState);
+export default function LikeType({ query }) {
+  const queryClient = useQueryClient();
+  const [likeTypeData, setLikeTypeData] =
+    useRecoilState<ILikeTypeStateType>(likeTypeState);
   const handleType = (type: string) => {
     setLikeTypeData((prev) => ({ ...prev, type: type }));
   };
 
   useEffect(() => {
     const fetchFunc = async () => {
-      const fData = await fetchLikeData(session);
-      if (fData) {
-        const data = await fetchByType(JSON.parse(fData));
-        setLikeTypeData({ data: data, type: "movie" });
-      }
+      // 캐시 상태 복원hydrate
+      hydrate(queryClient, query);
+      const likeDataByType: ILikeTypeStateType["data"] | undefined =
+        queryClient.getQueryData(["likesPageData"]);
+      likeDataByType &&
+        setLikeTypeData({ data: likeDataByType, type: "movie" });
     };
     fetchFunc();
-  }, []);
+  }, [query]);
 
-  useEffect(() => {
-    if (likeData) {
-      setLikeTypeData({ data: likeData, type: "movie" });
-    }
-  }, [likeData]);
   return (
     <div className={styles.type}>
       <div
@@ -38,14 +35,14 @@ export default function LikeType({ session }) {
         }
       >
         <span>MOVIE</span>
-        <span>{likeTypeData.data["movie"]?.length}</span>
+        <span>{likeTypeData.data["movie"]?.length || 0}</span>
       </div>
       <div
         onClick={() => handleType("tv")}
         className={likeTypeData.type === "tv" ? styles.active : styles.inActive}
       >
         <span>TV</span>
-        <span>{likeTypeData.data["tv"]?.length}</span>
+        <span>{likeTypeData.data["tv"]?.length || 0}</span>
       </div>
     </div>
   );

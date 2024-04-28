@@ -5,8 +5,11 @@ import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 import "../styles/global.css";
 import RecoilRootWrapper from "./RecoilWrapper";
+import QueryRootWrapper from "./TanstackQueryWrapper";
 import { Navigation } from "../components/navigation/navigation";
+import { QueryClient } from "@tanstack/react-query";
 
+export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: {
     template: "%s | Next Movies Website",
@@ -27,8 +30,10 @@ export default function RootLayout({
     <html>
       <body>
         <RecoilRootWrapper>
-          <Navigation />
-          {children}
+          <QueryRootWrapper>
+            <Navigation />
+            {children}
+          </QueryRootWrapper>
         </RecoilRootWrapper>
       </body>
     </html>

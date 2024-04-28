@@ -9,30 +9,15 @@ import SwiperCores from "swiper";
 
 import { useEffect, useState } from "react";
 import { IMovie } from "../../types/type";
-
-const typeUrl = {
-  movie: MOVIE_URL,
-  tv: TV_URL,
-};
-
-const getMovies = async (type: string) => {
-  try {
-    const response = await fetch(typeUrl[type], options);
-    const data = await response.json();
-    return data.results;
-  } catch (error) {
-    console.log(error);
-  }
-};
+import { getTrendingMovies } from "../../actions/auth-actions";
 
 export default function MovieSection({ type }) {
   const [movies, setMovies] = useState<IMovie[]>([]);
-  // const toUpperType = toTitleCase(type);
   SwiperCores.use([Navigation, Autoplay, Pagination]);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const fetchedMovies = await getMovies(type);
+      const fetchedMovies = await getTrendingMovies(type);
       setMovies(fetchedMovies);
     };
 
@@ -41,7 +26,7 @@ export default function MovieSection({ type }) {
 
   return (
     <section className={`${styles.section} swiper-container`}>
-      <h1>{type}</h1>
+      <h1>{type.toUpperCase()}</h1>
       <Swiper
         navigation
         modules={[Navigation]}

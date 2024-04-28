@@ -30,6 +30,12 @@
     }
   }
 
+  .logo {
+    a {
+      text-decoration: none;
+    }
+  }
+
   @include tablet {
     padding: 30px 0px;
   }

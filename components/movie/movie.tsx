@@ -12,13 +12,13 @@ const Movie = ({ movie }: { movie: IMovie }) => {
   const { id, title, poster_path, name, media_type, backdrop_path } = movie;
   const { type: likeType } = useRecoilValue(likeTypeState);
   const whatType = media_type || likeType;
-  const typeCheck = whatType === "movie" ? "movies" : "tv";
+  const typeCheck = whatType === "movie" ? "movie" : "tv";
   const router = useRouter();
   const close = useCloseSearch();
 
   const onClick = () => {
     close();
-    router.push(`/${typeCheck}/${id}`);
+    router.push(`/detail/${typeCheck}/${id}`);
   };
 
   return (

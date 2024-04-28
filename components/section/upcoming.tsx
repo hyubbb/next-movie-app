@@ -71,7 +71,11 @@ export default function Upcoming() {
 
           return (
             <SwiperSlide key={movie.id}>
-              <Link prefetch href={`/movies/${id}`} className={styles.movie}>
+              <Link
+                prefetch
+                href={`/detail/movie/${id}`}
+                className={styles.movie}
+              >
                 <Image
                   src={`${IMG_URL}${backdrop_path}`}
                   alt={title}

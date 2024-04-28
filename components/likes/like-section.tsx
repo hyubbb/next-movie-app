@@ -2,19 +2,25 @@ import styles from "./like-section.module.scss";
 import LikeCard from "./like-card";
 import Logout from "../navigation/logout";
 import LikeType from "./like-type";
-import { Suspense, useEffect, useState } from "react";
+import { queryAll } from "../../actions/auth-actions";
+import { QueryClient, dehydrate } from "@tanstack/react-query";
+import { Suspense } from "react";
 import Spinner from "../commons/Spinner";
-import { fetchSession } from "../../actions/auth-actions";
+import { prefetchAndDehydrate } from "../../lib/queryClient";
 
 export default async function LikeSection() {
-  const session = await fetchSession();
+  const dehydratedState = await prefetchAndDehydrate(
+    ["likesPageData"],
+    queryAll
+  );
+
   return (
     <div className={styles.container}>
       <Logout />
-      <LikeType session={session} />
       <Suspense fallback={<Spinner />}>
-        <LikeCard />
+        <LikeType query={dehydratedState} />
       </Suspense>
+      <LikeCard />
     </div>
   );
 }

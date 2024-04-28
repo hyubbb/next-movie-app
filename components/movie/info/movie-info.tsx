@@ -15,7 +15,7 @@ export const getMovie = async ({ id, type }: { id: string; type: string }) => {
   return response.json();
 };
 
-export default async function MovieInfo({ id, type }) {
+export default async function MovieInfo({ id, type, query }) {
   const movie = await getMovie({ id, type });
 
   const {
@@ -29,6 +29,8 @@ export default async function MovieInfo({ id, type }) {
     runtime,
     genres,
     credits,
+    created_by,
+    first_air_date,
   } = movie;
 
   let res = { width: 0, height: 0, base64: "" };
@@ -38,22 +40,26 @@ export default async function MovieInfo({ id, type }) {
   }
   return (
     <div className={styles.container}>
-      <Image
-        className={styles.poster}
-        src={`${IMG_URL}${poster_path}`}
-        alt={title || name}
-        priority={true}
-        sizes='500px'
-        width={res.width}
-        height={res.height}
-        placeholder='blur'
-        blurDataURL={res.base64}
-      />
+      {poster_path ? (
+        <Image
+          className={styles.poster}
+          src={`${IMG_URL}${poster_path}`}
+          alt={title || name}
+          priority={true}
+          width={res.width}
+          height={res.height}
+          sizes='500px'
+          placeholder='blur'
+          blurDataURL={res.base64}
+        />
+      ) : (
+        <div className={styles.noImage}>no image</div>
+      )}
 
       <div className={styles.info}>
         <div className={styles.titleBox}>
           <h1 className={styles.title}>{title || name} </h1>
-          <LikeButton movieId={id} type={type} />
+          <LikeButton movieId={id} type={type} query={query} />
         </div>
 
         <div className={styles.genres}>
@@ -75,10 +81,24 @@ export default async function MovieInfo({ id, type }) {
               <span>|</span>
             </>
           )}
-          <h3>{release_date}</h3>
-          <span>|</span>
-          <h3>{runtime}분</h3>
+          {release_date ? (
+            <>
+              <h3>{release_date}</h3>
+              <span>|</span>
+              <h3>{runtime}분</h3>
+            </>
+          ) : (
+            <>
+              <h3>{first_air_date}</h3>
+              {created_by && created_by[0] && (
+                <>
+                  <span>|</span> <h3>감독 {created_by[0]?.original_name}</h3>
+                </>
+              )}
+            </>
+          )}
         </div>
+
         <div className={styles.overview}>{overview}</div>
         {homepage && (
           <a href={homepage} target={"_blank"}>
@@ -86,7 +106,7 @@ export default async function MovieInfo({ id, type }) {
           </a>
         )}
 
-        {<MovieCredits credits={credits} />}
+        {credits && <MovieCredits credits={credits} />}
       </div>
 
       <Image

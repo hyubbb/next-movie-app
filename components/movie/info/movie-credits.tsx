@@ -11,7 +11,7 @@ const MovieCredits = ({ credits }: { credits: ICredit }) => {
   const castCnt = casts.length > 6 ? 6 : casts.length;
   return (
     <>
-      {casts.length > 0 && (
+      {casts?.length > 0 && (
         <div className={styles.container}>
           <MovieCasts casts={casts} />
           {casts.slice(0, castCnt).map(async (cast, idx) => {
