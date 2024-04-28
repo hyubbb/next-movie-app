@@ -20,7 +20,7 @@ Nextjs, tanStack-query, firebase를 사용하여 만든 영화 검색 사이트�
 
 # 스택
 
-#### React, Next.js, Typescript, Firebase, Scss, Recoil
+React, Next.js, Tanstack-Query, Typescript, Recoil, Firebase, Scss, 
 
 
 <br>
