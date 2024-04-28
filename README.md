@@ -1,10 +1,12 @@
 
 # 소개
 
-Nextjs, firebase를 사용하여 만든 영화 검색 사이트입니다.
+Nextjs, tanStack-query, firebase를 사용하여 만든 영화 검색 사이트입니다.
 기능으로는 영화 검색과 좋아요기능이 있습니다.
 
 - 회고포스팅 : <a href="https://velog.io/@hyubbb/Next.jsfirebase-%EC%84%9C%EB%B2%84%EC%82%AC%EC%9D%B4%EB%93%9C%EC%97%90%EC%84%9C-cookie%EB%A1%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%A0%95%EB%B3%B4-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0">서버사이드에서 로그인정보 유지하기</a>
+<a href="https://velog.io/write?id=d40952c9-5df9-49f9-b9ea-bbf13fbbc818">useMutation 을 사용하자</a>
+
 - 배포페이지 : https://next-movie-app-rosy.vercel.app/
 
 <br>
@@ -22,7 +24,7 @@ Nextjs, firebase를 사용하여 만든 영화 검색 사이트입니다.
 
 <br>
 
-## 기능
+# 기능
 - firebase를 이용한 로그인
 - 영화 좋아요 기능
   - 좋아요, 좋아요 취소 가능. 개별페이지에서 컨텐츠 확인가능
@@ -30,7 +32,7 @@ Nextjs, firebase를 사용하여 만든 영화 검색 사이트입니다.
 
 
 
-## 기타
+# 기타
 
 - `next/image` 를 활용하여 데이터 로딩속도 절감
     - 로딩속도가 70%이상 절감을 경험
