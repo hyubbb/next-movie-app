@@ -1,9 +1,8 @@
 "use client";
 import Link from "next/link";
 import { IoIosHeart, IoIosLogIn } from "react-icons/io";
-import { fetchSession } from "../../../actions/auth-actions";
 import styles from "../navigation.module.scss";
-import { hydrate, useQuery, useQueryClient } from "@tanstack/react-query";
+import { hydrate, useQueryClient } from "@tanstack/react-query";
 import useSession from "../../../hooks/useSession";
 export default function Menu({ session }) {
   const queryClient = useQueryClient();
