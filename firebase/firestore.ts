@@ -57,7 +57,7 @@ export async function fetchLikesByUserAndPost(
     return querySnapshot.docs[0].data() as ILike;
   } catch (error) {
     console.error("Error fetching documents: ", error);
-    return [];
+    return false;
   }
 }
 
