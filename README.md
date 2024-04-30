@@ -6,7 +6,7 @@ Nextjs, tanStack-query, firebase를 사용하여 만든 영화 검색 사이트�
 
 - 관련포스팅 : <a href="https://velog.io/@hyubbb/Next.jsfirebase-%EC%84%9C%EB%B2%84%EC%82%AC%EC%9D%B4%EB%93%9C%EC%97%90%EC%84%9C-cookie%EB%A1%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%A0%95%EB%B3%B4-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0">서버사이드에서 로그인정보 유지하기</a>
 ,
-<a href="https://velog.io/write?id=d40952c9-5df9-49f9-b9ea-bbf13fbbc818">useMutation를 사용해서 최신데이터로 유지</a>
+<a href="https://velog.io/@hyubbb/useMutation%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90">useMutation를 사용해서 최신데이터로 유지</a>
 
 - 배포페이지 : https://next-movie-app-rosy.vercel.app/
 
