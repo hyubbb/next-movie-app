@@ -22,6 +22,11 @@ const queryClient = new QueryClient({
   },
 });
 
+/**
+ * @function TanstackQueryWrapper
+ * @desc @tanstack/react-query 라이브러리를 사용하여 쿼리 클라이언트를 제공하는 컴포넌트입니다.
+ */
+
 export default function TanstackQueryWrapper({
   children,
   dehydratedState,

@@ -50,10 +50,6 @@ export async function fetchLikesByUserAndPost(
       return false;
     }
 
-    // querySnapshot.forEach((doc) => {
-    //   const likeData = doc.data() as ILike;
-    //   results.push(likeData);
-    // })
     return querySnapshot.docs[0].data() as ILike;
   } catch (error) {
     console.error("Error fetching documents: ", error);
