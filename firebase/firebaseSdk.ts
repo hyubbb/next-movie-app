@@ -28,5 +28,4 @@ const verifyIdToken = async (token: string) => {
     throw error;
   }
 };
-
 export { verifyIdToken, admin };

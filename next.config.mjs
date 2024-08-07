@@ -8,7 +8,10 @@ const nextConfig = {
   },
   swcMinify: true,
   eslint: {
-    ignoreDuringBuild: true,
+    ignoreDuringBuilds: true,
+  },
+  experimental: {
+    appDir: true,
   },
 };
 
