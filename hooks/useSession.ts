@@ -7,14 +7,16 @@ import { User } from "firebase/auth";
 
 const useSession = (sessionData) => {
   const [userData, setUserData] = useRecoilState<User | null>(userState);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(async (user) => {
       try {
         if (user) {
           const token = await user.getIdToken(true);
-          createSession(token);
           const userCopy = JSON.parse(JSON.stringify(user));
+          createSession(token);
           setUserData(userCopy);
+          return userData;
         } else {
           setUserData(null);
         }
@@ -24,7 +26,7 @@ const useSession = (sessionData) => {
     });
 
     return () => unsubscribe();
-  }, [sessionData]);
+  }, [sessionData, userState]);
 
   const handleAuth = async () => {
     await signInWithGoogle();

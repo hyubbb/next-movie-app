@@ -31,6 +31,7 @@ export const fetchSession = async () => {
       const session = decodedToken ? decodedToken.email : null;
       return session;
     }
+    return null;
   } catch (error) {
     console.log(error);
   }
