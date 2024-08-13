@@ -12,7 +12,7 @@ import { ILike } from "../types/type";
 export async function createSession(token: string) {
   removeSession();
   cookies().set("token", token, {
-    secure: process.env.NODE_ENV === "production",
+    secure: false,
     maxAge: 60 * 60 * 24,
     path: "/",
   });
