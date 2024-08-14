@@ -11,9 +11,7 @@ export function generateMetadata() {
 const Page = async () => {
   return (
     <div className={styles.container}>
-      <Suspense fallback={<Spinner />}>
-        <LikeSection />
-      </Suspense>
+      <Suspense fallback={<Spinner />}>{/* <LikeSection /> */}</Suspense>
     </div>
   );
 };
