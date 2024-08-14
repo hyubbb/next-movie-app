@@ -4,7 +4,7 @@ import MovieSection from "../../components/section/movie-section";
 import Upcoming from "../../components/section/upcoming";
 import Spinner from "../../components/commons/Spinner";
 export const metadata = {
-  title: "Home",
+  title: "Home!",
 };
 
 export default async function HomePage() {
