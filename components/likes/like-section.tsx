@@ -9,10 +9,8 @@ import Spinner from "../commons/Spinner";
 import { prefetchAndDehydrate } from "../../lib/queryClient";
 
 export default async function LikeSection() {
-  const dehydratedState = await prefetchAndDehydrate(
-    ["likesPageData"],
-    queryAll
-  );
+  const dehydratedState =
+    (await prefetchAndDehydrate(["likesPageData"], queryAll)) || {};
 
   return (
     <div className={styles.container}>
