@@ -13,14 +13,19 @@ export default async function LikeSection() {
     dehydratedState = await prefetchAndDehydrate(["likesPageData"], queryAll);
   } catch (error) {
     console.error("Failed to fetch data:", error);
+    return <div>Error loading data. Please try again later.</div>;
+  }
+
+  if (!dehydratedState) {
+    return <div>No data available. Please try again later.</div>;
   }
 
   return (
     <div className={styles.container}>
       <Logout />
       <Suspense fallback={<Spinner />}>
-        <LikeType query={dehydratedState} />
-        <LikeCard />
+        {/* <LikeType query={dehydratedState} /> */}
+        {/* <LikeCard /> */}
       </Suspense>
     </div>
   );
