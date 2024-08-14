@@ -10,7 +10,7 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <div className={styles.container}>
-      <Suspense fallback={<Spinner />}>
+      {/* <Suspense fallback={<Spinner />}>
         <Upcoming />
       </Suspense>
       <Suspense fallback={<Spinner />}>
@@ -18,7 +18,7 @@ export default async function HomePage() {
       </Suspense>
       <Suspense fallback={<Spinner />}>
         <MovieSection type='tv' />
-      </Suspense>
+      </Suspense> */}
     </div>
   );
 }
