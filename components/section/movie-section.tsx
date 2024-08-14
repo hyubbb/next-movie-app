@@ -1,8 +1,6 @@
 "use client";
 import Movie from "../movie/movie";
 import styles from "./movie-section.module.scss";
-import { MOVIE_URL, TV_URL, options } from "../../app/constants";
-import toTitleCase from "../../utils/toTitleCase";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import SwiperCores from "swiper";
