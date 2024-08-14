@@ -10,9 +10,9 @@ export const Navigation = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
     queryKey: ["loginSession"],
+    initialData: {},
     queryFn: async () => await fetchSession(),
   });
-  // const session = queryClient.getQueryData(["loginSession"]);
   const session = dehydrate(queryClient);
   return (
     <>

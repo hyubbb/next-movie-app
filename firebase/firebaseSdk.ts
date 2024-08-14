@@ -5,7 +5,6 @@ const firebaseAdminConfig = {
   clientEmail: (process.env.NEXT_PUBLIC_FIREBASE_CLIENT_EMAIL as string) || "",
   project_id: (process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID as string) || "",
 };
-console.log(firebaseAdminConfig);
 // Firebase Admin 초기화
 if (!admin.apps.length) {
   admin.initializeApp({
