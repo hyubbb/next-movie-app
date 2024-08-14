@@ -24,8 +24,8 @@ export default async function LikeSection() {
     <div className={styles.container}>
       <Logout />
       <Suspense fallback={<Spinner />}>
-        {/* <LikeType query={dehydratedState} /> */}
-        {/* <LikeCard /> */}
+        <LikeType query={dehydratedState} />
+        <LikeCard />
       </Suspense>
     </div>
   );
