@@ -1,11 +1,12 @@
 import * as admin from "firebase-admin";
 
 const firebaseAdminConfig = {
-  private_key: process.env.FIREBASE_PRIVATE_KEY!.replace(/\\n/g, "\n"),
+  private_key:
+    process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n") || undefined,
   clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
   project_id: process.env.FIREBASE_PROJECT_ID,
 };
-
+console.log(firebaseAdminConfig);
 // Firebase Admin 초기화
 if (!admin.apps.length) {
   admin.initializeApp({
