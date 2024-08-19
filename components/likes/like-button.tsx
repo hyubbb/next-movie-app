@@ -1,10 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
 import styles from "./like-section.module.scss";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
-import { fetchLikesByUserAndPost, toggleLike } from "../../firebase/firestore";
 import { User } from "firebase/auth";
-import { ILike, IMovie } from "../../types/type";
+import { IMovie } from "../../types/type";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../state/atom";
 import { hydrate, useMutation, useQueryClient } from "@tanstack/react-query";
@@ -29,6 +27,7 @@ export default function LikeButton({
     onSuccess: async () => {
       const data = await queryAll();
       queryClient.setQueryData<IMovie[]>(["likesPageData"], data);
+      queryClient.invalidateQueries({ queryKey: ["likesPageData"] });
     },
     onMutate: async () => {
       await queryClient.cancelQueries({ queryKey: ["likesData"], exact: true });

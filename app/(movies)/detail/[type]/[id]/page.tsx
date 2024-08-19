@@ -21,8 +21,7 @@ export async function generateMetadata({ params: { id, type } }: IParams) {
 
 const Page = async ({ params: { id, type } }: IParams) => {
   const dehydratedState =
-    (await prefetchAndDehydrate(["likesData"], queryLikeData(id))) && {};
-
+    (await prefetchAndDehydrate(["likesData"], queryLikeData(id))) ?? {};
   return (
     <div className={styles.container}>
       <Suspense fallback={<Spinner />}>

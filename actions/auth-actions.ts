@@ -107,9 +107,16 @@ export const queryAll = async () => {
 
 // 좋아요 데이터를 추가 또는 삭제
 export const queryChangeData = async (movieId, type) => {
-  const session = await fetchSession();
-  if (session) {
-    await toggleLike(session, movieId, type);
+  try {
+    const session = await fetchSession();
+    if (session) {
+      await toggleLike(session, movieId, type);
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.error("Error update likeData", error);
+    return false;
   }
 };
 
