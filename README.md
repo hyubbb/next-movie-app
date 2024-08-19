@@ -1,7 +1,8 @@
 
 # 소개
 
-Nextjs, Tanstack-Query, firebase, TMDB API를 사용하여 만든 영화 검색 사이트 입니다.
+`TMDB API`를 사용하여 만든 영화 검색 사이트 입니다. 
+대표적인 기능으로는 영화 검색과 좋아요 기능이 있습니다.
 
 - 관련포스팅 : <a href="https://velog.io/@hyubbb/Next.jsfirebase-%EC%84%9C%EB%B2%84%EC%82%AC%EC%9D%B4%EB%93%9C%EC%97%90%EC%84%9C-cookie%EB%A1%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%A0%95%EB%B3%B4-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0">서버사이드에서 로그인정보 유지하기</a>
 ,
@@ -12,20 +13,30 @@ Nextjs, Tanstack-Query, firebase, TMDB API를 사용하여 만든 영화 검색 
 <br>
 
 
-# 스택
+## 기술스택
 
-### React, Next.js, Tanstack-Query, Typescript, Recoil, Firebase, Scss
+- React, Next.js, Tanstack Query, Typescript, Recoil, Scss,
+Firebase,  S3, Github Actions
 
 
 
 ![0422-ezgif com-optimize](https://github.com/hyubbb/nextjs-learn-app/assets/32926006/a1c86bd0-8b6d-4178-a415-2e986a4de620)
 
-
-
 <br>
 
-# 기능
 
+## 아키텍쳐
+ <img width="764" alt="6" src="https://github.com/user-attachments/assets/def314ed-1c0f-4015-a020-612aaa445e8d">
+
+ 
+## 대표 구현 내역 - 좋아요 (낙관적 업데이트)
+
+ 
+영화 페이지에서 좋아요 버튼을 눌렀을때 동작하는 다이어그램
+<img width="750" alt="7" src="https://github.com/user-attachments/assets/e2e77735-4e5d-4dd0-ae65-8e7eb7fb5fce">
+
+ 
+# 기능
 
 - `use client`를 사용해서 서버사이드와 클라이언트 사이드 구분
 - 로그인과 좋아요 기능에 필요한 DB사용을 위해서 `firebase` 를 이용.
@@ -49,3 +60,18 @@ Nextjs, Tanstack-Query, firebase, TMDB API를 사용하여 만든 영화 검색 
     - Optimistic Update를 이용하여 좋아요버튼을 눌렀을때 즉시 반응하여, 사용자 경험을 향상 시켰습니다.
 - 반응형 UI
     - `swiper`라이브러리를 이용하여  영화리스트를 캐러셀로 구현
+
+---
+
+## 해결하고자 한 문제
+
+
+### < 로딩속도 개선을 위한 배포 서버 비교 >
+
+ <img width="374" alt="8" src="https://github.com/user-attachments/assets/1e8c4597-be45-42a5-8e84-03c6c2714b2b">
+
+
+- 로컬 환경에 비교하여, 현저히 느려진 웹의 환경을 개선하기 위한 비교.
+- 배포방식 변경으로 인한 페이지 로딩속도가 최소 `20%` 이상 향상 하였습니다.
+- EC2의 속도가 빠른것에 리전의 영향이 크다고 판단됩니다.
+- `Netlify`에서 `AWS-EC2`로 서버 변경하였습니다.
