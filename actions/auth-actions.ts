@@ -21,7 +21,11 @@ export async function createSession(token: string) {
 export async function removeSession() {
   cookies().delete("token");
 }
-
+/**
+ * 로그인 세션 데이터 가져오기
+ * 쿠키에 토큰이 없으면 null 반환
+ * 토큰이 있으면 토큰을 디코딩하여 세션 반환
+ */
 export const fetchSession = async () => {
   try {
     if (cookies().get("token")) {

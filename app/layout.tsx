@@ -7,7 +7,6 @@ import "../styles/global.css";
 import RecoilRootWrapper from "./RecoilWrapper";
 import QueryRootWrapper from "./TanstackQueryWrapper";
 import { Navigation } from "../components/navigation/navigation";
-import { QueryClient } from "@tanstack/react-query";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -27,7 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
+    <html lang='ko'>
+      <head>
+        <meta charSet='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+      </head>
       <body>
         <RecoilRootWrapper>
           <QueryRootWrapper>

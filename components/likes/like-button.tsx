@@ -17,11 +17,14 @@ export default function LikeButton({
   type: string;
   query: any;
 }) {
+  // 서버사이드에서 직렬화된 데이터를 가져와 클라이언트에서 사용할 수 있도록 hydrate 처리
   const queryClient = useQueryClient();
   hydrate(queryClient, query);
+
   const hasLike = queryClient.getQueryData<boolean>(["likesData"]) || false;
   const userData = useRecoilValue<User | null>(userState);
 
+  // 좋아요 버튼 클릭 시 좋아요 상태 변경에 대한 처리
   const mutation = useMutation({
     mutationFn: async () => await queryChangeData(movieId, type),
     onSuccess: async () => {
@@ -30,8 +33,11 @@ export default function LikeButton({
       queryClient.invalidateQueries({ queryKey: ["likesPageData"] });
     },
     onMutate: async () => {
+      // 충돌 방지를 위해 쿼리 캔슬
       await queryClient.cancelQueries({ queryKey: ["likesData"], exact: true });
+      // 실패했을때 rollback을 위한 이전 데이터 저장
       const previousLikes = queryClient.getQueryData<boolean>(["likesData"]);
+
       queryClient.setQueryData<boolean>(
         ["likesData"],
         (oldLikes: boolean) => !oldLikes
@@ -43,6 +49,10 @@ export default function LikeButton({
       queryClient.setQueryData<boolean>(
         ["likesPageData"],
         context?.previousLikes
+      );
+      queryClient.setQueryData<boolean>(
+        ["likesData"],
+        (oldLikes: boolean) => !oldLikes
       );
     },
   });
