@@ -6,8 +6,8 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import SwiperCores from "swiper";
 
 import { useEffect, useState } from "react";
-import { IMovie } from "../../types/type";
-import { getTrendingMovies } from "../../actions/auth-actions";
+import { IMovie } from "@/types/type";
+import { getTrendingMovies } from "@/actions/auth-actions";
 
 export default function MovieSection({ type }) {
   const [movies, setMovies] = useState<IMovie[]>([]);

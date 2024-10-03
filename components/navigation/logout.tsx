@@ -3,9 +3,9 @@ import { User } from "firebase/auth";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import styles from "./logout.module.scss";
 import { useRouter } from "next/navigation";
-import { userState } from "../../state/atom";
-import { signOutWithGoogle } from "../../firebase/auth";
-import { removeSession } from "../../actions/auth-actions";
+import { userState } from "@/state/atom";
+import { signOutWithGoogle } from "@/firebase/auth";
+import { removeSession } from "@/actions/auth-actions";
 import nookies from "nookies";
 export default function Logout() {
   const router = useRouter();

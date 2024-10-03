@@ -1,17 +1,18 @@
 "use client";
+import React from "react";
 import styles from "./search.module.scss";
 import InputField from "./inputFiled";
 import { Suspense, useEffect, useRef, useState } from "react";
-import useInput from "../../hooks/useInputs";
-import { options } from "../../app/constants";
+import useInput from "@/hooks/useInputs";
+import { options } from "@/app/constants";
 import MovieCard from "./movie-card";
 import Genre from "./genre";
-import useOutsideClick from "../../hooks/useOutsideClick";
+import useOutsideClick from "@/hooks/useOutsideClick";
 import { useRecoilState } from "recoil";
-import { isSearchOpenState, searchDataState } from "../../state/atom";
-import Spinner from "../commons/Spinner";
+import { isSearchOpenState, searchDataState } from "@/state/atom";
+import Spinner from "@/components/commons/Spinner";
 import { IoIosClose, IoIosSearch } from "react-icons/io";
-import useCloseSearch from "../../hooks/closeSearch";
+import useCloseSearch from "@/hooks/closeSearch";
 
 export default function Search() {
   const { reset, setValue, debouncedValue, ...inputProps } = useInput("");
@@ -53,9 +54,7 @@ export default function Search() {
             <Suspense fallback={<Spinner />}>
               <Genre setSearchData={setSearchData} />
             </Suspense>
-            <Suspense fallback={<Spinner />}>
-              <MovieCard movies={searchData} />
-            </Suspense>
+            <MovieCard movies={searchData} />
           </div>
         </div>
       )}

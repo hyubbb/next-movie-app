@@ -1,9 +1,10 @@
 "use client";
-import Movie from "../movie/movie";
-import styles from "./like-section.module.scss";
+import React from "react";
 import { useRecoilValue } from "recoil";
-import { likeTypeState } from "../../state/atom";
-import { IMovie } from "../../types/type";
+import Movie from "@/components/movie/movie";
+import styles from "@/components/likes/like-section.module.scss";
+import { likeTypeState } from "@/state/atom";
+import { IMovie } from "@/types/type";
 
 const LikeCard = () => {
   const { data, type } = useRecoilValue(likeTypeState) || {};

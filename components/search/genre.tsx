@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { options } from "../../app/constants";
+import { options } from "@/app/constants";
 import styles from "./genre.module.scss";
 
 const getGenre = async () => {

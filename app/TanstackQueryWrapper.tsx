@@ -33,7 +33,6 @@ export default function TanstackQueryWrapper({
 }: QueryRootWrapperProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      {/* {children} */}
       <ReactQueryDevtools initialIsOpen={false} />
       <HydrationBoundary state={dehydratedState}>{children}</HydrationBoundary>
     </QueryClientProvider>

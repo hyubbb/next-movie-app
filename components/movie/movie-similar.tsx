@@ -1,9 +1,10 @@
 "use client";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { API_URL, IMG_URL, options } from "../../app/constants";
+import { API_URL, IMG_URL, options } from "@/app/constants";
 import styles from "./movie-similar.module.scss";
 import Image from "next/image";
-import { IMovie } from "../../types/type";
+import { IMovie } from "@/types/type";
 
 const getMovies = async ({ id, type }: { id: string; type: string }) => {
   const response = await fetch(
@@ -14,7 +15,7 @@ const getMovies = async ({ id, type }: { id: string; type: string }) => {
   return results;
 };
 
-export default async function MovieSimilar({
+export default function MovieSimilar({
   id,
   type,
 }: {
@@ -22,7 +23,14 @@ export default async function MovieSimilar({
   type: string;
 }) {
   const newType = type === "movie" ? "movies" : "tv";
-  const movies: IMovie[] = await getMovies({ id, type });
+  const [movies, setMovies] = useState<IMovie[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await getMovies({ id, type });
+      setMovies(response);
+    };
+    fetchData();
+  }, [id, type]);
 
   return (
     <>

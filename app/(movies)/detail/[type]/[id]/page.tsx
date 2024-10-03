@@ -1,13 +1,9 @@
-import { Suspense } from "react";
-import MovieInfo, {
-  getMovie,
-} from "../../../../../components/movie/info/movie-info";
-import MovieRelations from "../../../../../components/movie/movie-relation";
-import styles from "../../../../../styles/movie.module.scss";
-import Spinner from "../../../../../components/commons/Spinner";
+import MovieInfo, { getMovie } from "@/components/movie/info/movie-info";
+import MovieRelations from "@/components/movie/movie-relation";
+import styles from "@/styles/movie.module.scss";
 
-import { queryLikeData } from "../../../../../actions/auth-actions";
-import { prefetchAndDehydrate } from "../../../../../lib/queryClient";
+import { queryLikeData } from "@/actions/auth-actions";
+import { prefetchAndDehydrate } from "@/lib/queryClient";
 interface IParams {
   params: { id: string; type: string };
 }
@@ -23,13 +19,11 @@ const Page = async ({ params: { id, type } }: IParams) => {
   const dehydratedState =
     (await prefetchAndDehydrate(["likesData"], queryLikeData(id))) ?? {};
   return (
+    // 영화 정보
+
     <div className={styles.container}>
-      <Suspense fallback={<Spinner />}>
-        <MovieInfo id={id} type={type} query={dehydratedState} />
-      </Suspense>
-      <Suspense fallback={<Spinner />}>
-        <MovieRelations id={id} type={type} />
-      </Suspense>
+      <MovieInfo id={id} type={type} query={dehydratedState} />
+      <MovieRelations id={id} type={type} />
     </div>
   );
 };

@@ -1,13 +1,13 @@
 "use server";
 import { cookies } from "next/headers";
-import { verifyIdToken } from "../firebase/firebaseSdk";
-import { MOVIE_DETAIL_URL, MOVIE_URL, TV_URL, options } from "../app/constants";
+import { verifyIdToken } from "@/firebase/firebaseSdk";
+import { MOVIE_DETAIL_URL, MOVIE_URL, TV_URL, options } from "@/app/constants";
 import {
   fetchLikesByUser,
   fetchLikesByUserAndPost,
   toggleLike,
-} from "../firebase/firestore";
-import { ILike } from "../types/type";
+} from "@/firebase/firestore";
+import { ILike } from "@/types/type";
 
 export async function createSession(token: string) {
   removeSession();

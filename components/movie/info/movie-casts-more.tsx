@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import styles from "./movie-credits.module.scss";
-import Modal from "../../modal/modal";
+import Modal from "@/components/modal/modal";
 export default function MovieCastsMore({ casts }) {
   const [isModal, setIsModal] = useState(false);
 

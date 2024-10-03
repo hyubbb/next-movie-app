@@ -1,10 +1,10 @@
 "use client";
 import styles from "./like-section.module.scss";
 import { useRecoilState } from "recoil";
-import { likeTypeState } from "../../state/atom";
+import { likeTypeState } from "@/state/atom";
 import { useEffect } from "react";
 import { hydrate, useQueryClient } from "@tanstack/react-query";
-import { ILikeTypeStateType } from "../../types/type";
+import { ILikeTypeStateType } from "@/types/type";
 
 export default function LikeType({ query }) {
   const queryClient = useQueryClient();

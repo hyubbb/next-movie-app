@@ -3,10 +3,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
-import "../styles/global.css";
+import "@/styles/global.css";
 import RecoilRootWrapper from "./RecoilWrapper";
 import QueryRootWrapper from "./TanstackQueryWrapper";
-import { Navigation } from "../components/navigation/navigation";
+import { Navigation } from "@/components/navigation/navigation";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {

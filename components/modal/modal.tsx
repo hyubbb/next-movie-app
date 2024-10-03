@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import { IMG_URL } from "../../app/constants";
-import styles from "../../styles/modal.module.scss";
-import useOutsideClick from "../../hooks/useOutsideClick";
+import { IMG_URL } from "@/app/constants";
+import styles from "@/styles/modal.module.scss";
+import useOutsideClick from "@/hooks/useOutsideClick";
 import Image from "next/image";
 
 export default function Modal({ casts, toggleModal }) {

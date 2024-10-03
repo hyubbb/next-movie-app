@@ -1,12 +1,12 @@
 "use server";
 import Link from "next/link";
 import styles from "./navigation.module.scss";
-import { FONT_SANS } from "../../utils/fonts";
-import Search from "../search/search";
+import { FONT_SANS } from "@/utils/fonts";
+import Search from "@/components/search/search";
 import Menu from "./menu/menu";
-import { fetchSession } from "../../actions/auth-actions";
+import { fetchSession } from "@/actions/auth-actions";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
-import { prefetchAndDehydrate } from "../../lib/queryClient";
+import { prefetchAndDehydrate } from "@/lib/queryClient";
 
 export const Navigation = async () => {
   const queryClient = new QueryClient();

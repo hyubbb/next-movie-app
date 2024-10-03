@@ -1,12 +1,12 @@
 "use client";
-import { API_URL, IMG_URL, options } from "../../app/constants";
+import { API_URL, IMG_URL, options } from "@/app/constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import styles from "./upcoming.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { IMovie } from "../../types/type";
+import { IMovie } from "@/types/type";
 
 const getMovies = async () => {
   try {

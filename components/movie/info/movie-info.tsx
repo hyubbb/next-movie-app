@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
 
-import { IMG_URL, MOVIE_DETAIL_URL, options } from "../../../app/constants";
+import { IMG_URL, MOVIE_DETAIL_URL, options } from "@/app/constants";
 import styles from "./movie-info.module.scss";
 import MovieCredits from "./movie-credits";
-import getBase64 from "../../../utils/getBase64";
-import LikeButton from "../../likes/like-button";
+import getBase64 from "@/utils/getBase64";
+import LikeButton from "@/components/likes/like-button";
 
 export const getMovie = async ({ id, type }: { id: string; type: string }) => {
   const response = await fetch(
@@ -107,7 +107,7 @@ export default async function MovieInfo({ id, type, query }) {
           </a>
         )}
 
-        {/* {credits && <MovieCredits credits={credits} />} */}
+        {credits && <MovieCredits credits={credits} />}
       </div>
 
       <Image

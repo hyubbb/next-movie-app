@@ -2,11 +2,11 @@
 import styles from "./like-section.module.scss";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { User } from "firebase/auth";
-import { IMovie } from "../../types/type";
+import { IMovie } from "@/types/type";
 import { useRecoilValue } from "recoil";
-import { userState } from "../../state/atom";
+import { userState } from "@/state/atom";
 import { hydrate, useMutation, useQueryClient } from "@tanstack/react-query";
-import { queryAll, queryChangeData } from "../../actions/auth-actions";
+import { queryAll, queryChangeData } from "@/actions/auth-actions";
 
 export default function LikeButton({
   movieId,
