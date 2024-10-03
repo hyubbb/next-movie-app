@@ -41,8 +41,6 @@ jobs:
           scp -o StrictHostKeyChecking=no -i private_key -r .next/* ${USER}@${HOST}:~/next-movie-app/.next
           ssh -o StrictHostKeyChecking=no -i private_key ${USER}@${HOST} '
             cd ~/next-movie-app
-            git pull origin main
-            npm run build
             pm2 delete all || true
             pm2 start "npm run start" --name "next-movie-app"  
           '
