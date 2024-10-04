@@ -29,9 +29,9 @@ const MovieCredits = ({ credits }: { credits: ICredit }) => {
                     src={`${IMG_URL}${profile_path}`}
                     sizes='200px'
                     placeholder='blur'
-                    width={res["width"]}
-                    height={res["height"]}
-                    blurDataURL={res["base64"]}
+                    width={res.width}
+                    height={res.height}
+                    blurDataURL={res.base64}
                   />
                 ) : (
                   <div className={styles.noImage}>no image</div>

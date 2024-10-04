@@ -2,7 +2,12 @@ import withPlaiceholder from "@plaiceholder/next";
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
-    domains: ["image.tmdb.org"],
+    remotePatterns: [
+      {
+        hostname: "image.tmdb.org",
+        protocol: "https",
+      },
+    ],
   },
   swcMinify: true,
   eslint: {
