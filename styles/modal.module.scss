@@ -43,11 +43,17 @@
   box-sizing: border-box;
   overflow: scroll;
   .card {
+    display: flex;
     position: relative;
+    flex-direction: column;
+    box-sizing: content-box;
+    aspect-ratio: 2/3;
     img {
+      background-color: #f3f3f321;
       width: 100%;
-      height: fit-content !important;
+      height: 100%;
       position: relative !important;
+      object-fit: cover;
     }
     .noImage {
       @include flexBox(center, center);

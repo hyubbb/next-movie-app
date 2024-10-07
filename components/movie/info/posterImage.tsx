@@ -12,7 +12,7 @@ export default function PosterImage({ title, name, poster_path, res }) {
           priority={true}
           width={res.width}
           height={res.height}
-          sizes='500px'
+          sizes='1500px'
           placeholder='blur'
           blurDataURL={res.base64}
         />

@@ -1,29 +1,35 @@
-import React, { Suspense } from "react";
+import React from "react";
 
 import { IMG_URL, MOVIE_DETAIL_URL, options } from "@/app/constants";
 import styles from "./movie-info.module.scss";
 import MovieCredits from "./movie-credits";
 import getBase64 from "@/utils/getBase64";
 import LikeButton from "@/components/likes/like-button";
-import Loading from "@/app/(home)/loading";
 import PosterImage from "./posterImage";
 import Image from "next/image";
-// MovieCredits 컴포넌트를 lazy로 로드
-// const MovieCredits = React.lazy(() => import("./movie-credits"));
 
 export const getMovie = async ({ id, type }: { id: string; type: string }) => {
   const response = await fetch(
     `${MOVIE_DETAIL_URL}/${type}/${id}?append_to_response=credits&language=ko`,
     options
   );
-  return response.json();
-  // const movie = await response.json();
+  const movie = await response.json();
 
-  // if (movie.poster_path) {
-  //   const base64Data = await getBase64(`${IMG_URL}${movie.poster_path}`);
-  //   return { ...movie, base64Data };
+  // // credits 이미지 처리
+  // if (movie.credits && movie.credits.cast) {
+  //   const processedCast = await Promise.all(
+  //     movie.credits.cast.map(async (cast) => {
+  //       if (cast.profile_path) {
+  //         const res = await getBase64(`${IMG_URL}${cast.profile_path}`);
+  //         return { ...cast, imageData: res };
+  //       }
+  //       return cast;
+  //     })
+  //   );
+  //   movie.credits.cast = processedCast;
   // }
-  // return movie;
+
+  return movie;
 };
 
 export default async function MovieInfo({ id, type, query }) {
@@ -49,6 +55,7 @@ export default async function MovieInfo({ id, type, query }) {
   if (poster_path) {
     res = await getBase64(`${IMG_URL}${poster_path}`);
   }
+
   return (
     <div className={styles.container}>
       <PosterImage
@@ -108,7 +115,7 @@ export default async function MovieInfo({ id, type, query }) {
           </a>
         )}
 
-        {/* {credits && <MovieCredits credits={credits} />} */}
+        {credits && <MovieCredits credits={credits} />}
 
         {/* <Suspense fallback={<Loading />}>
           {credits && <MovieCredits credits={credits} />}
@@ -118,7 +125,7 @@ export default async function MovieInfo({ id, type, query }) {
       <Image
         className={styles.blurredBg}
         src={`${IMG_URL}${poster_path}`}
-        alt={title}
+        alt={title || name}
         fill
         priority={false}
         sizes='300px'

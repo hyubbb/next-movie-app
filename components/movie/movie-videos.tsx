@@ -2,40 +2,24 @@
 import React, { useEffect, useState, useRef } from "react";
 import { API_URL, options } from "@/app/constants";
 import styles from "./movie-videos.module.scss";
-import { IVideo } from "@/types/type";
+import { IMovie, IVideo } from "@/types/type";
 
-const getVideos = async (id: string, type: string) => {
-  const whatType = type === "movie" ? "movie" : "tv";
-  const response = await fetch(
-    `${API_URL}/${whatType}/${id}/videos?language=ko`,
-    options
-  );
-  const { results } = await response.json();
-  return results;
-};
-
-const MovieVideos = ({ id, type }: { id: string; type: string }) => {
-  const [videos, setVideos] = useState<IVideo[]>([]);
-  const fetchedRef = useRef(false);
-
-  useEffect(() => {
-    if (!fetchedRef.current) {
-      const fetchData = async () => {
-        const response = await getVideos(id, type);
-        setVideos(response);
-      };
-      fetchData();
-      fetchedRef.current = true;
-    }
-  }, [id, type]);
-
-  if (videos.length === 0) {
+const MovieVideos = ({
+  id,
+  type,
+  relatedMovies,
+}: {
+  id: string;
+  type: string;
+  relatedMovies: IVideo[];
+}) => {
+  if (relatedMovies.length === 0) {
     return <div className={styles.text}> 관련 데이터가 없습니다. </div>;
   }
 
   return (
     <div className={styles.container}>
-      {videos.slice(0, 5).map((video) => (
+      {relatedMovies.slice(0, 5).map((video) => (
         <iframe
           key={video.id}
           src={`https://youtube.com/embed/${video.key}`}

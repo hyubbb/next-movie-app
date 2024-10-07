@@ -1,7 +1,13 @@
 "use server";
 import { cookies } from "next/headers";
 import { verifyIdToken } from "@/firebase/firebaseSdk";
-import { MOVIE_DETAIL_URL, MOVIE_URL, TV_URL, options } from "@/app/constants";
+import {
+  API_URL,
+  MOVIE_DETAIL_URL,
+  MOVIE_URL,
+  TV_URL,
+  options,
+} from "@/app/constants";
 import {
   fetchLikesByUser,
   fetchLikesByUserAndPost,
@@ -122,6 +128,31 @@ export const queryChangeData = async (movieId, type) => {
     console.error("Error update likeData", error);
     return false;
   }
+};
+
+export const getRelateVideos = async (id: string, type: string) => {
+  const whatType = type === "movie" ? "movie" : "tv";
+  const response = await fetch(
+    `${API_URL}/${whatType}/${id}/videos?language=ko`,
+    options
+  );
+  const { results } = await response.json();
+  return results;
+};
+
+export const getSimilarMovies = async ({
+  id,
+  type,
+}: {
+  id: string;
+  type: string;
+}) => {
+  const response = await fetch(
+    `${API_URL}/${type}/${id}/similar?language=ko&region=KR`,
+    options
+  );
+  const { results } = await response.json();
+  return results;
 };
 
 // 세션값으로 사용자의 좋아요 데이터를 조회

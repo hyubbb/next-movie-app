@@ -3,16 +3,21 @@ import React, { Suspense, useEffect, useState } from "react";
 import MovieVideos from "./movie-videos";
 import styles from "./movie-relation.module.scss";
 import Spinner from "@/components/commons/Spinner";
+import MovieSimilar from "./movie-similar";
 
 // 버튼을 눌러야지 활성화 되므로 lazy처리를 하여 코드스플리팅
-const LazySimilar = React.lazy(() => import("./movie-similar"));
+// const LazySimilar = React.lazy(() => import("./movie-similar"));
 
-export default function MovieRelations({ id, type }) {
+export default function MovieRelations({
+  id,
+  type,
+  relatedMovies,
+  similarMovies,
+}) {
   const [isActive, setIsActive] = useState(true);
   const handlerBtn = (type: boolean) => {
     setIsActive(type);
   };
-
   const Button = ({ type, children }) => {
     return (
       <div
@@ -34,9 +39,9 @@ export default function MovieRelations({ id, type }) {
       <div>
         <Suspense fallback={<Spinner />}>
           {isActive ? (
-            <MovieVideos id={id} type={type} />
+            <MovieVideos id={id} type={type} relatedMovies={relatedMovies} />
           ) : (
-            <LazySimilar id={id} type={type} />
+            <MovieSimilar id={id} type={type} similarMovies={similarMovies} />
           )}
         </Suspense>
       </div>

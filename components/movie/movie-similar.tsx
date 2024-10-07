@@ -4,38 +4,22 @@ import Link from "next/link";
 import { API_URL, IMG_URL, options } from "@/app/constants";
 import styles from "./movie-similar.module.scss";
 import Image from "next/image";
-import { IMovie } from "@/types/type";
-
-const getMovies = async ({ id, type }: { id: string; type: string }) => {
-  const response = await fetch(
-    `${API_URL}/${type}/${id}/similar?language=ko&region=KR`,
-    options
-  );
-  const { results } = await response.json();
-  return results;
-};
+import { IMovie, ISimilarMovie } from "@/types/type";
 
 export default function MovieSimilar({
   id,
   type,
+  similarMovies,
 }: {
   id: string;
   type: string;
+  similarMovies: ISimilarMovie[];
 }) {
   const newType = type === "movie" ? "movies" : "tv";
-  const [movies, setMovies] = useState<IMovie[]>([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await getMovies({ id, type });
-      setMovies(response);
-    };
-    fetchData();
-  }, [id, type]);
-
   return (
     <>
       <div className={styles.container}>
-        {movies.map((movie: IMovie) => {
+        {similarMovies.map((movie: ISimilarMovie) => {
           const { poster_path, title, name, id } = movie;
 
           return (
@@ -44,7 +28,7 @@ export default function MovieSimilar({
                 {poster_path ? (
                   <Image
                     src={`${IMG_URL}${poster_path}`}
-                    alt={title || name}
+                    alt={title || name || id + ""}
                     fill
                     sizes='300px'
                   />
