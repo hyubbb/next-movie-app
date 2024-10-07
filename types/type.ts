@@ -34,6 +34,9 @@ export interface ICast {
   profile_path: string;
   name: string;
   character: string;
+  base64?: string;
+  width?: number;
+  height?: number;
 }
 
 export interface ICredit {

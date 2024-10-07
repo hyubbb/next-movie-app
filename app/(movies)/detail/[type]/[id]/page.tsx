@@ -8,12 +8,12 @@ interface IParams {
   params: { id: string; type: string };
 }
 
-export async function generateMetadata({ params: { id, type } }: IParams) {
-  const { title } = await getMovie({ id, type: type });
-  return {
-    title: title,
-  };
-}
+// export async function generateMetadata({ params: { id, type } }: IParams) {
+//   const { title } = await getMovie({ id, type: type });
+//   return {
+//     title: title,
+//   };
+// }
 
 const Page = async ({ params: { id, type } }: IParams) => {
   const dehydratedState =

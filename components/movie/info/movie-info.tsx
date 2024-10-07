@@ -1,19 +1,29 @@
-import React from "react";
-import Image from "next/image";
+import React, { Suspense } from "react";
 
 import { IMG_URL, MOVIE_DETAIL_URL, options } from "@/app/constants";
 import styles from "./movie-info.module.scss";
 import MovieCredits from "./movie-credits";
 import getBase64 from "@/utils/getBase64";
 import LikeButton from "@/components/likes/like-button";
+import Loading from "@/app/(home)/loading";
+import PosterImage from "./posterImage";
+import Image from "next/image";
+// MovieCredits 컴포넌트를 lazy로 로드
+// const MovieCredits = React.lazy(() => import("./movie-credits"));
 
 export const getMovie = async ({ id, type }: { id: string; type: string }) => {
   const response = await fetch(
     `${MOVIE_DETAIL_URL}/${type}/${id}?append_to_response=credits&language=ko`,
     options
   );
-
   return response.json();
+  // const movie = await response.json();
+
+  // if (movie.poster_path) {
+  //   const base64Data = await getBase64(`${IMG_URL}${movie.poster_path}`);
+  //   return { ...movie, base64Data };
+  // }
+  // return movie;
 };
 
 export default async function MovieInfo({ id, type, query }) {
@@ -41,21 +51,12 @@ export default async function MovieInfo({ id, type, query }) {
   }
   return (
     <div className={styles.container}>
-      {poster_path ? (
-        <Image
-          className={styles.poster}
-          src={`${IMG_URL}${poster_path}`}
-          alt={title || name}
-          priority={true}
-          width={res.width}
-          height={res.height}
-          sizes='500px'
-          placeholder='blur'
-          blurDataURL={res.base64}
-        />
-      ) : (
-        <div className={styles.noImage}>no image</div>
-      )}
+      <PosterImage
+        title={title}
+        name={name}
+        poster_path={`${IMG_URL}${poster_path}`}
+        res={res}
+      />
 
       <div className={styles.info}>
         <div className={styles.titleBox}>
@@ -107,7 +108,11 @@ export default async function MovieInfo({ id, type, query }) {
           </a>
         )}
 
-        {credits && <MovieCredits credits={credits} />}
+        {/* {credits && <MovieCredits credits={credits} />} */}
+
+        {/* <Suspense fallback={<Loading />}>
+          {credits && <MovieCredits credits={credits} />}
+        </Suspense> */}
       </div>
 
       <Image
