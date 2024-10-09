@@ -12,11 +12,11 @@ import { getMovieInfoWithCredits } from "@/actions/auth-actions";
 export const getMovie = async ({ id, type }: { id: string; type: string }) => {
   const movie = await getMovieInfoWithCredits({ id, type });
 
-  let posterImageData;
-  if (movie.poster_path) {
-    posterImageData = await getBase64(`${IMG_URL}${movie.poster_path}`);
-    movie.blurredBg = posterImageData;
-  }
+  // let posterImageData;
+  // if (movie.poster_path) {
+  //   posterImageData = await getBase64(`${IMG_URL}${movie.poster_path}`);
+  //   movie.blurredBg = posterImageData;
+  // }
 
   // credits 이미지 blur 처리부분 , 하지만 비동기 처리의 속도지연 떄문에
   // 굳이 하지 않아도 될 것 같다는 판단.
@@ -63,7 +63,6 @@ export default async function MovieInfo({ id, type, query }) {
         title={title}
         name={name}
         poster_path={`${IMG_URL}${poster_path}`}
-        blurredBg={movie.blurredBg}
       />
 
       <div className={styles.info}>
@@ -125,10 +124,11 @@ export default async function MovieInfo({ id, type, query }) {
         alt={title || name}
         priority={false}
         sizes='300px'
-        placeholder='blur'
-        width={movie.blurredBg.width}
-        height={movie.blurredBg.height}
-        blurDataURL={movie.blurredBg.base64}
+        fill
+        // placeholder='blur'
+        // width={movie.blurredBg.width}
+        // height={movie.blurredBg.height}
+        // blurDataURL={movie.blurredBg.base64}
       />
     </div>
   );

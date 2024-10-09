@@ -31,6 +31,7 @@ export default function MovieSimilar({
                     alt={title || name || id + ""}
                     fill
                     sizes='300px'
+                    priority={true}
                   />
                 ) : (
                   <div className={styles.noImage}>no image</div>

@@ -29,6 +29,7 @@ export default function Modal({ casts, toggleModal }) {
                     src={`${IMG_URL}${profile_path}`}
                     alt={name}
                     fill
+                    priority={true}
                     sizes='300px'
                   />
                 ) : (
