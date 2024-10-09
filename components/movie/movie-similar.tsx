@@ -14,7 +14,7 @@ export default function MovieSimilar({
   type: string;
   similarMovies: ISimilarMovie[];
 }) {
-  const newType = type === "movie" || "tv";
+  const newType = type === "movie" ? "movie" : "tv";
   return (
     <>
       <div className={styles.container}>
