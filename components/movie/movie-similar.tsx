@@ -15,7 +15,7 @@ export default function MovieSimilar({
   type: string;
   similarMovies: ISimilarMovie[];
 }) {
-  const newType = type === "movie" ? "movies" : "tv";
+  const newType = type === "movie" && "tv";
   return (
     <>
       <div className={styles.container}>
@@ -23,7 +23,7 @@ export default function MovieSimilar({
           const { poster_path, title, name, id } = movie;
 
           return (
-            <Link key={id} prefetch href={`/${newType}/${id}`}>
+            <Link key={id} prefetch href={`/detail/${newType}/${id}`}>
               <div className={styles.card}>
                 {poster_path ? (
                   <Image
