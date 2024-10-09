@@ -1,13 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { API_URL, IMG_URL, options } from "@/app/constants";
+import { IMG_URL } from "@/app/constants";
 import styles from "./movie-similar.module.scss";
 import Image from "next/image";
-import { IMovie, ISimilarMovie } from "@/types/type";
+import { ISimilarMovie } from "@/types/type";
 
 export default function MovieSimilar({
-  id,
   type,
   similarMovies,
 }: {
@@ -15,7 +14,7 @@ export default function MovieSimilar({
   type: string;
   similarMovies: ISimilarMovie[];
 }) {
-  const newType = type === "movie" && "tv";
+  const newType = type === "movie" || "tv";
   return (
     <>
       <div className={styles.container}>
