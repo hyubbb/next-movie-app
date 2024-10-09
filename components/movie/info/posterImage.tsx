@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./movie-info.module.scss";
-export default function PosterImage({ title, name, poster_path, res }) {
+export default function PosterImage({ title, name, poster_path, blurredBg }) {
   return (
     <>
       {poster_path ? (
@@ -10,11 +10,11 @@ export default function PosterImage({ title, name, poster_path, res }) {
           src={poster_path}
           alt={title || name}
           priority={true}
-          width={res.width}
-          height={res.height}
           sizes='1500px'
           placeholder='blur'
-          blurDataURL={res.base64}
+          width={blurredBg.width}
+          height={blurredBg.height}
+          blurDataURL={blurredBg.base64}
         />
       ) : (
         <div className={styles.noImage}>no image</div>

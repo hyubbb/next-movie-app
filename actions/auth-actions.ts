@@ -73,7 +73,13 @@ export const getTrendingMovies = async (type: string) => {
   }
 };
 
-export const getMovie = async ({ id, type }: { id: string; type: string }) => {
+export const getMovieInfoWithCredits = async ({
+  id,
+  type,
+}: {
+  id: string;
+  type: string;
+}) => {
   const url = `${MOVIE_DETAIL_URL}/${type}/${id}?append_to_response=credits&language=ko`;
   const response = await fetch(url, options);
   const data = await response.json();
@@ -82,7 +88,7 @@ export const getMovie = async ({ id, type }: { id: string; type: string }) => {
 
 export const fetchMovieData = async (data: ILike[]) => {
   const promises = data.map((like: ILike) => {
-    return getMovie({ id: like.movieId, type: like.type });
+    return getMovieInfoWithCredits({ id: like.movieId, type: like.type });
   });
   return await Promise.all(promises);
 };

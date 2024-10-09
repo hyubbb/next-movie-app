@@ -1,24 +1,30 @@
 import React from "react";
 
-import { IMG_URL, MOVIE_DETAIL_URL, options } from "@/app/constants";
+import { IMG_URL } from "@/app/constants";
 import styles from "./movie-info.module.scss";
 import MovieCredits from "./movie-credits";
 import getBase64 from "@/utils/getBase64";
 import LikeButton from "@/components/likes/like-button";
 import PosterImage from "./posterImage";
 import Image from "next/image";
+import { getMovieInfoWithCredits } from "@/actions/auth-actions";
 
 export const getMovie = async ({ id, type }: { id: string; type: string }) => {
-  const response = await fetch(
-    `${MOVIE_DETAIL_URL}/${type}/${id}?append_to_response=credits&language=ko`,
-    options
-  );
-  const movie = await response.json();
+  const movie = await getMovieInfoWithCredits({ id, type });
 
-  // // credits 이미지 처리
+  let posterImageData;
+  if (movie.poster_path) {
+    posterImageData = await getBase64(`${IMG_URL}${movie.poster_path}`);
+    movie.blurredBg = posterImageData;
+  }
+
+  // credits 이미지 blur 처리부분 , 하지만 비동기 처리의 속도지연 떄문에
+  // 굳이 하지 않아도 될 것 같다는 판단.
+
   // if (movie.credits && movie.credits.cast) {
+  //   // 포스터 이미지 처리
   //   const processedCast = await Promise.all(
-  //     movie.credits.cast.map(async (cast) => {
+  //     movie.credits.cast.slice(0, 6).map(async (cast) => {
   //       if (cast.profile_path) {
   //         const res = await getBase64(`${IMG_URL}${cast.profile_path}`);
   //         return { ...cast, imageData: res };
@@ -26,6 +32,7 @@ export const getMovie = async ({ id, type }: { id: string; type: string }) => {
   //       return cast;
   //     })
   //   );
+
   //   movie.credits.cast = processedCast;
   // }
 
@@ -50,19 +57,13 @@ export default async function MovieInfo({ id, type, query }) {
     first_air_date,
   } = movie;
 
-  let res = { width: 0, height: 0, base64: "" };
-
-  if (poster_path) {
-    res = await getBase64(`${IMG_URL}${poster_path}`);
-  }
-
   return (
     <div className={styles.container}>
       <PosterImage
         title={title}
         name={name}
         poster_path={`${IMG_URL}${poster_path}`}
-        res={res}
+        blurredBg={movie.blurredBg}
       />
 
       <div className={styles.info}>
@@ -116,19 +117,18 @@ export default async function MovieInfo({ id, type, query }) {
         )}
 
         {credits && <MovieCredits credits={credits} />}
-
-        {/* <Suspense fallback={<Loading />}>
-          {credits && <MovieCredits credits={credits} />}
-        </Suspense> */}
       </div>
 
       <Image
         className={styles.blurredBg}
         src={`${IMG_URL}${poster_path}`}
         alt={title || name}
-        fill
         priority={false}
         sizes='300px'
+        placeholder='blur'
+        width={movie.blurredBg.width}
+        height={movie.blurredBg.height}
+        blurDataURL={movie.blurredBg.base64}
       />
     </div>
   );

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { IMG_URL } from "@/app/constants";
 import styles from "./movie-credits.module.scss";
