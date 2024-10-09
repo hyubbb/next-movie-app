@@ -122,7 +122,7 @@ export default async function MovieInfo({ id, type, query }) {
         className={styles.blurredBg}
         src={`${IMG_URL}${poster_path}`}
         alt={title || name}
-        priority={false}
+        priority={true}
         sizes='300px'
         fill
         // placeholder='blur'
