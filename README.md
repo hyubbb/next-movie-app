@@ -11,7 +11,7 @@ sdk expired시 재발급처리가 제대로 이뤄지지 않는 것 같음.
 ,
 <a href="https://velog.io/@hyubbb/useMutation%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90">useMutation를 사용해서 최신데이터로 유지</a>
 
-- 배포페이지 : https://next-movie-app-rosy.vercel.app/
+- 배포페이지 : [웹 페이지](http://3.34.31.241/)
 
 <br>
 
