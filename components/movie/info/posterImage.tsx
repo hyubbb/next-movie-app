@@ -5,11 +5,11 @@ import styles from "./movie-info.module.scss";
 import getBase64 from "@/utils/getBase64";
 
 export default async function PosterImage({ title, name, poster_path }) {
-  let posterImageData;
+  // let posterImageData;
 
-  if (poster_path) {
-    posterImageData = await getBase64(`${poster_path}`);
-  }
+  // if (poster_path) {
+  //   posterImageData = await getBase64(`${poster_path}`);
+  // }
 
   return (
     <>
@@ -25,10 +25,11 @@ export default async function PosterImage({ title, name, poster_path }) {
           alt={title || name}
           priority={true}
           quality={60}
-          placeholder='blur'
-          width={posterImageData?.width || 1000}
-          height={posterImageData?.height || 1400}
-          blurDataURL={posterImageData?.base64}
+          fill
+          // placeholder='blur'
+          // width={posterImageData?.width || 1000}
+          // height={posterImageData?.height || 1400}
+          // blurDataURL={posterImageData?.base64}
         />
       ) : (
         <div className={styles.noImage}>no image</div>
