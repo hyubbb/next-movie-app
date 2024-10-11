@@ -1,4 +1,4 @@
-import MovieInfo from "@/components/movie/info/movie-info";
+import MovieInfo, { getMovie } from "@/components/movie/info/movie-info";
 import MovieRelations from "@/components/movie/movie-relation";
 import styles from "@/styles/movie.module.scss";
 
@@ -12,12 +12,12 @@ interface IParams {
   params: { id: string; type: string };
 }
 
-// export async function generateMetadata({ params: { id, type } }: IParams) {
-//   const { title } = await getMovie({ id, type: type });
-//   return {
-//     title: title,
-//   };
-// }
+export async function generateMetadata({ params: { id, type } }: IParams) {
+  const { title } = await getMovie({ id, type: type });
+  return {
+    title: title,
+  };
+}
 
 const fetchData = async (id: string, type: string) => {
   const response = await getRelateVideos(id, type);

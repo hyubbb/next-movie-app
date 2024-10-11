@@ -17,14 +17,11 @@ export default async function PosterImage({ title, name, poster_path }) {
         <Image
           className={styles.poster}
           style={{
-            width: "100%",
-            height: "100%",
             backgroundColor: "#f3f3f321",
           }}
           src={poster_path}
           alt={title || name}
-          quality={10}
-          // fill
+          quality={30}
           placeholder='blur'
           width={posterImageData?.width || 1000}
           height={posterImageData?.height || 1400}

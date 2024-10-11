@@ -9,16 +9,18 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <div className={styles.container}>
-      <Suspense fallback={<Spinner />}>
-        <Upcoming />
-      </Suspense>
-      <Suspense fallback={<Spinner />}>
-        <MovieSection type='movie' />
-      </Suspense>
-      <Suspense fallback={<Spinner />}>
-        <MovieSection type='tv' />
-      </Suspense>
-    </div>
+    <>
+      <div className={styles.container}>
+        <Suspense fallback={<Spinner />}>
+          <Upcoming />
+        </Suspense>
+        <Suspense fallback={<Spinner />}>
+          <MovieSection type='movie' />
+        </Suspense>
+        <Suspense fallback={<Spinner />}>
+          <MovieSection type='tv' />
+        </Suspense>
+      </div>
+    </>
   );
 }

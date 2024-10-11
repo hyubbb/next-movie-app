@@ -1,10 +1,36 @@
 import { Loader2 } from "lucide-react";
 
+const styles = {
+  loadingContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "absolute",
+    width: "100vw",
+    height: "100vh",
+    zIndex: 100,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  spinner: {
+    margin: "1rem 0",
+    height: "1.75rem",
+    width: "1.75rem",
+    zIndex: 101,
+    color: "#fff", // zinc-500
+  },
+  loadingText: {
+    fontSize: "0.75rem",
+    zIndex: 102,
+    color: "#fff", // zinc-500
+  },
+};
+
 const Loading = () => {
   return (
-    <div className='flex flex-1 flex-col items-center justify-center'>
-      <Loader2 className='my-4 h-7 w-7 animate-spin text-zinc-500' />
-      <p className='text-xs text-zinc-500 dark:text-zinc-400'>Loading...</p>
+    <div style={styles.loadingContainer}>
+      <Loader2 style={styles.spinner} />
+      <p style={styles.loadingText}>Loading...</p>
     </div>
   );
 };
