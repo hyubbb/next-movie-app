@@ -10,6 +10,7 @@ export default async function PosterImage({ title, name, poster_path }) {
   if (poster_path) {
     posterImageData = await getBase64(`${poster_path}`);
   }
+
   return (
     <>
       {poster_path ? (
@@ -23,9 +24,10 @@ export default async function PosterImage({ title, name, poster_path }) {
           src={poster_path}
           alt={title || name}
           priority={true}
+          quality={60}
           placeholder='blur'
-          width={posterImageData?.width}
-          height={posterImageData?.height}
+          width={posterImageData?.width || 1000}
+          height={posterImageData?.height || 1400}
           blurDataURL={posterImageData?.base64}
         />
       ) : (
