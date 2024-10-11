@@ -30,6 +30,7 @@ export default function MovieSimilar({
                     alt={title || name || id + ""}
                     fill
                     sizes='300px'
+                    quality={30}
                     priority={true}
                   />
                 ) : (

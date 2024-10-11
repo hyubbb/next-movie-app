@@ -14,8 +14,11 @@
   flex-direction: column;
   width: 100%;
   position: relative;
+  aspect-ratio: 2/3;
   img {
     width: 100%;
+    aspect-ratio: 2/3;
+    background-color: #f3f3f321;
     height: fit-content !important;
     position: relative !important;
   }

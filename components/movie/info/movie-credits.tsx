@@ -23,9 +23,9 @@ const MovieCredits = ({ credits }: { credits: ICredit }) => {
                   <Image
                     alt={name}
                     src={`${IMG_URL}${profile_path}`}
-                    sizes='200px'
                     placeholder='blur'
                     priority={true}
+                    quality={50}
                     width={imageData?.width || 200}
                     height={imageData?.height || 300}
                     blurDataURL={

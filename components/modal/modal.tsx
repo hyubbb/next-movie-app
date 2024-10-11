@@ -29,8 +29,8 @@ export default function Modal({ casts, toggleModal }) {
                     src={`${IMG_URL}${profile_path}`}
                     alt={name}
                     fill
+                    quality={50}
                     priority={true}
-                    sizes='300px'
                   />
                 ) : (
                   <div className={styles.noImage}>no image</div>
