@@ -23,6 +23,7 @@ export default async function PosterImage({ title, name, poster_path }) {
           alt={title || name}
           quality={30}
           placeholder='blur'
+          priority={true}
           width={posterImageData?.width || 1000}
           height={posterImageData?.height || 1400}
           blurDataURL={posterImageData?.base64}
