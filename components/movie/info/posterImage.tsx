@@ -7,9 +7,9 @@ import getBase64 from "@/utils/getBase64";
 export default async function PosterImage({ title, name, poster_path }) {
   let posterImageData;
 
-  if (poster_path) {
-    posterImageData = await getBase64(`${poster_path}`);
-  }
+  // if (poster_path) {
+  //   posterImageData = await getBase64(`${poster_path}`);
+  // }
 
   return (
     <>
@@ -22,11 +22,13 @@ export default async function PosterImage({ title, name, poster_path }) {
           src={poster_path}
           alt={title || name}
           quality={30}
-          placeholder='blur'
           priority={true}
-          width={posterImageData?.width || 1000}
-          height={posterImageData?.height || 1400}
-          blurDataURL={posterImageData?.base64}
+          // placeholder='blur'
+          // width={posterImageData?.width || 1000}
+          // height={posterImageData?.height || 1400}
+          // blurDataURL={posterImageData?.base64}
+          sizes='100vw'
+          fill
         />
       ) : (
         <div className={styles.noImage}>no image</div>

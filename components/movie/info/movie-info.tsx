@@ -3,7 +3,6 @@ import React from "react";
 import { IMG_URL } from "@/app/constants";
 import styles from "./movie-info.module.scss";
 import MovieCredits from "./movie-credits";
-import getBase64 from "@/utils/getBase64";
 import LikeButton from "@/components/likes/like-button";
 import PosterImage from "./posterImage";
 import Image from "next/image";
