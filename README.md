@@ -33,9 +33,11 @@ Firebase,  S3, Github Actions
 
  
 영화 페이지에서 좋아요 버튼을 눌렀을때 동작하는 다이어그램
-<img width="750" alt="7" src="https://github.com/user-attachments/assets/e2e77735-4e5d-4dd0-ae65-8e7eb7fb5fce">
 
- 
+ <img width="638" alt="7" src="https://github.com/user-attachments/assets/a43bc480-9a3a-40a8-b88f-e2c1354095b1">
+
+
+
 # 기능
 
 - `use client`를 사용해서 서버사이드와 클라이언트 사이드 구분
